@@ -1,0 +1,30 @@
+{
+  "package": "WILLS_COFFEE_PWA_v3_FINAL",
+  "app_name": "Wills Coffee",
+  "short_name": "Wills Coffee",
+  "investor1_all_outlet_connected": true,
+  "outlet_exec_url_count": 6,
+  "cache_v3": true,
+  "config_syntax_ok": true,
+  "index_inline_script_checks": [
+    [
+      1,
+      true,
+      ""
+    ]
+  ],
+  "files": [
+    "README_PASANG.txt",
+    "STATIC_AUDIT.txt",
+    "_headers",
+    "config.js",
+    "favicon.png",
+    "icon-192.png",
+    "icon-512.png",
+    "icon-maskable-192.png",
+    "icon-maskable-512.png",
+    "index.html",
+    "manifest.webmanifest",
+    "sw.js"
+  ]
+}
