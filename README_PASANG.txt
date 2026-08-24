@@ -35,3 +35,5 @@ CATATAN KEAMANAN
 - Kasir/Owner tetap login di Apps Script outlet masing-masing.
 - Investor outlet tetap masuk melalui Portal → password → Dashboard token.
 - GitHub hanya cangkang/launcher, bukan tempat data bisnis.
+
+Wills Coffee PWA
