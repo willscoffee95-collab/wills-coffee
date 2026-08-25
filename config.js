@@ -27,5 +27,6 @@ window.WILLS_CONFIG = Object.freeze({
     investor2: Object.freeze({ outletId:'cikopak' }),
     investor3: Object.freeze({ outletId:'cipaisan' })
   }),
+  ownerAllOutletUrl: 'https://script.google.com/macros/s/AKfycbx6RHzh1nJz7BxZeyeaaGyqwFEQ_xeIu8VpLgiUzv3yodfaQcfl73JqyjPxtXZ1S43a9Q/exec',
   investor1AllOutletUrl: 'https://script.google.com/macros/s/AKfycbwTrqbe2hdMnGGt8noVFI4R6frKtUbLBckVP8LaU-OUHS6SGj2S4wv8XmU_vKXX9fcW/exec'
 });

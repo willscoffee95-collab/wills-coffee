@@ -1,0 +1,21 @@
+{
+  "package": "WILLS_COFFEE_PWA_v5_OWNER_ALL_OUTLET",
+  "changes": [
+    "Owner > Laporan All Outlet added",
+    "Owner All Outlet URL embedded",
+    "Wills logo used for All Outlet",
+    "Existing Kasir/Owner/Investor routes preserved",
+    "Service Worker cache bumped to v5"
+  ],
+  "checks": {
+    "owner_all_url_present": true,
+    "owner_all_card_present": true,
+    "owner_all_uses_wills_logo": true,
+    "owner_all_route_present": true,
+    "owner_all_click_present": true,
+    "investor_all_preserved": true,
+    "cache_bumped": true,
+    "config_syntax_ok": true
+  },
+  "ok": true
+}
