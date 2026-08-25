@@ -1,0 +1,27 @@
+{
+  "package": "WILLS_COFFEE_PWA_v4_ROLE_ICONS",
+  "changes": [
+    "K -> role-kasir.png",
+    "O -> role-owner.png",
+    "I -> role-investor.png",
+    "Investor 1 / Laporan All Outlet: ALL -> existing Wills icon-192.png",
+    "Service Worker cache bumped to v4 and caches new role icons",
+    "config.js routes/URLs unchanged"
+  ],
+  "checks": {
+    "role_kasir_asset": true,
+    "role_owner_asset": true,
+    "role_investor_asset": true,
+    "home_has_kasir_image": true,
+    "home_has_owner_image": true,
+    "home_has_investor_image": true,
+    "all_outlet_uses_wills_logo": true,
+    "old_home_K_removed": true,
+    "old_home_O_removed": true,
+    "old_home_I_removed": true,
+    "all_badge_text_removed": true,
+    "config_investor_all_url_preserved": true,
+    "cache_bumped_v4": true,
+    "ok": true
+  }
+}
