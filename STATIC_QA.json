@@ -1,0 +1,14 @@
+{
+  "version": "2026-09-13.10.8.7.0-pwa-premium-command-center-design-only",
+  "static_only": true,
+  "checks": {
+    "has_home_roles": true,
+    "has_5_outlet_config": true,
+    "master_route_preserved": true,
+    "owner_all_preserved": true,
+    "investor_all_preserved": true,
+    "viewer_preserved": true,
+    "version_marked": true
+  },
+  "ok": true
+}

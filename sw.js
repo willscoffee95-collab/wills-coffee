@@ -1,4 +1,4 @@
-const CACHE='wills-pwa-v10.7.4.1-recovery';
+const CACHE='wills-pwa-v10.8.7.0-premium-command-center';
 
 const STATIC=[
   './',
