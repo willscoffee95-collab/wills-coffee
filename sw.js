@@ -1,5 +1,5 @@
-const CACHE='wills-pwa-v10.8.7.3-transparent-logo-assets';
-const STATIC=['./','./index.html','./config.js','./manifest.webmanifest','./icon-192.png','./icon-512.png','./wills-logo-white.png','./wills-logo-red.png'];
+const CACHE='wills-pwa-v10.8.7.4-exact-wills-logo';
+const STATIC=['./','./index.html','./config.js','./manifest.webmanifest','./icon-192.png','./icon-512.png','./wills-logo.png'];
 self.addEventListener('install',event=>{event.waitUntil(caches.open(CACHE).then(cache=>cache.addAll(STATIC)).catch(()=>{}));self.skipWaiting();});
 self.addEventListener('activate',event=>{event.waitUntil(caches.keys().then(keys=>Promise.all(keys.filter(key=>key!==CACHE&&key.startsWith('wills-')).map(key=>caches.delete(key)))));self.clients.claim();});
 self.addEventListener('fetch',event=>{const req=event.request;if(req.method!=='GET')return;const url=new URL(req.url);if(url.origin!==self.location.origin)return;const fresh=url.pathname.endsWith('/')||url.pathname.endsWith('/index.html')||url.pathname.endsWith('/config.js')||url.pathname.endsWith('/sw.js');if(fresh){event.respondWith(fetch(req,{cache:'no-store'}).then(res=>{const copy=res.clone();caches.open(CACHE).then(cache=>cache.put(req,copy)).catch(()=>{});return res;}).catch(()=>caches.match(req).then(cached=>cached||caches.match('./index.html'))));return;}event.respondWith(caches.match(req).then(cached=>cached||fetch(req).then(res=>{const copy=res.clone();caches.open(CACHE).then(cache=>cache.put(req,copy)).catch(()=>{});return res;})));});

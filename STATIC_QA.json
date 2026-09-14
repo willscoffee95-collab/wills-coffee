@@ -1,16 +1,22 @@
 {
-  "version": "2026-09-14.10.8.7.3-pwa-transparent-logo-assets",
+  "version": "2026-09-14.10.8.7.4-pwa-exact-wills-logo",
   "static_only": true,
   "checks": {
-    "transparent_white_logo_png": true,
-    "transparent_red_logo_png": true,
-    "hero_uses_transparent_logo": true,
-    "splash_uses_transparent_logo": true,
-    "light_surfaces_use_red_transparent_logo": true,
+    "exact_uploaded_logo_pixels_preserved": true,
+    "wills_logo_png_transparent": true,
+    "icon_192_transparent": true,
+    "icon_512_transparent": true,
+    "favicon_transparent": true,
+    "maskable_192_transparent": true,
+    "maskable_512_transparent": true,
+    "hero_uses_exact_logo": true,
+    "no_old_generated_logo_refs": true,
     "service_worker_cache_bumped": true,
-    "service_worker_caches_new_logo_assets": true,
+    "service_worker_caches_exact_logo": true,
     "config_unchanged": true,
-    "production_routes_preserved": true
+    "index_inline_javascript_syntax_pass": true,
+    "service_worker_javascript_syntax_pass": true,
+    "config_javascript_syntax_pass": true
   },
   "ok": true
 }
