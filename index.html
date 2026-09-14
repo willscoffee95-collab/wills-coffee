@@ -11,7 +11,7 @@
   <link rel="manifest" href="manifest.webmanifest">
   <link rel="icon" href="favicon.png">
   <link rel="apple-touch-icon" href="icon-192.png">
-  <!-- WILLS PWA v10.8.7.1 premium brand UI refinement -->
+  <!-- WILLS PWA v10.8.7.2 centered brand hero + featured owner -->
   <title>Wills Coffee</title>
   <style>
 
@@ -104,11 +104,122 @@
     @media(max-width:380px){.system-pill span{display:none}.system-pill{width:28px;padding:0;justify-content:center}.hero-copy h1{font-size:28px}.role-grid{gap:8px}.role-card{padding:13px}.role-card[data-action="finance"],.role-card[data-action="hr"]{grid-template-columns:36px 1fr}.role-icon{width:39px;height:39px}}
     @media(display-mode:standalone){#installCard{display:none!important}}
 
+
+
+    /* v10.8.7.2 — centered brand hero + featured owner */
+    #shell{
+      background:
+        radial-gradient(circle at 10% 88%,rgba(212,20,20,.055),transparent 22%),
+        radial-gradient(circle at 94% 74%,rgba(141,78,44,.055),transparent 18%),
+        linear-gradient(180deg,#f9f5f1 0%,#f5efe9 100%);
+    }
+    .hero{
+      min-height:330px;
+      padding:34px 20px 86px;
+      display:grid;
+      place-items:center;
+      background:
+        radial-gradient(circle at 76% 22%,rgba(255,255,255,.11),transparent 17%),
+        radial-gradient(circle at 18% 74%,rgba(255,255,255,.06),transparent 24%),
+        linear-gradient(145deg,#e3161d 0%,#c90c14 48%,#92090e 100%);
+    }
+    .hero:before{
+      width:620px;height:620px;right:-320px;top:-355px;
+      border-color:rgba(255,255,255,.085);
+      box-shadow:0 0 0 72px rgba(255,255,255,.018),0 0 0 148px rgba(255,255,255,.012);
+    }
+    .hero:after{
+      width:420px;height:420px;left:-285px;bottom:-300px;
+      border-color:rgba(255,255,255,.055);
+      box-shadow:0 0 0 62px rgba(255,255,255,.013);
+    }
+    .hero-decor{position:absolute;inset:0;pointer-events:none;overflow:hidden}
+    .hero-wave{position:absolute;border-radius:50%;filter:blur(.1px);opacity:.9}
+    .hero-wave.w1{width:720px;height:220px;left:-90px;bottom:-96px;border:1px solid rgba(255,255,255,.08);transform:rotate(-8deg)}
+    .hero-wave.w2{width:780px;height:250px;right:-170px;bottom:-140px;border:1px solid rgba(255,215,205,.12);transform:rotate(7deg)}
+    .bean{position:absolute;width:34px;height:48px;border-radius:55% 45% 50% 50%;background:linear-gradient(135deg,rgba(86,24,14,.42),rgba(255,255,255,.04));box-shadow:inset -5px -6px 10px rgba(55,5,5,.22),0 11px 24px rgba(70,0,0,.13);transform:rotate(34deg)}
+    .bean:after{content:"";position:absolute;left:16px;top:5px;width:2px;height:38px;border-radius:999px;background:rgba(255,218,203,.28);transform:rotate(9deg)}
+    .bean.b1{left:8%;top:62%;transform:rotate(54deg) scale(.72);opacity:.58}
+    .bean.b2{right:16%;top:18%;transform:rotate(24deg) scale(.86);opacity:.5}
+    .bean.b3{right:8%;bottom:10%;transform:rotate(68deg) scale(.58);opacity:.36}
+    .hero-center{position:relative;z-index:3;display:grid;place-items:center;text-align:center;margin-top:0}
+    .hero-logo{width:142px;height:142px;display:grid;place-items:center}
+    .hero-logo img{width:142px;height:142px;display:block;object-fit:contain;filter:drop-shadow(0 22px 30px rgba(79,0,4,.24))}
+    .hero-system-title{margin-top:15px;font-size:18px;font-weight:750;letter-spacing:.015em;color:#fff;text-shadow:0 2px 10px rgba(77,0,0,.18)}
+    .system-pill{position:absolute;right:22px;top:24px;z-index:4;background:rgba(72,5,8,.24);border-color:rgba(255,255,255,.17)}
+    .brand,.hero-copy{display:none!important}
+
+    .content{max-width:1120px;margin:-48px auto 0;padding:0 18px 42px}
+    .panel{position:relative}
+    .panel:after{content:"";position:absolute;z-index:-1;right:-72px;top:84px;width:210px;height:210px;border-radius:48% 52% 58% 42%;background:radial-gradient(circle at 35% 35%,rgba(212,20,20,.06),rgba(212,20,20,.012) 58%,transparent 60%);transform:rotate(22deg)}
+    .home-label{margin:0 4px 14px;font-size:9.5px;letter-spacing:.2em;color:#95877f}
+    .role-grid{grid-template-columns:repeat(4,minmax(0,1fr));gap:12px}
+    .role-card{min-height:126px;border-radius:23px;padding:17px 16px;background:rgba(255,253,251,.96);border:1px solid rgba(226,214,205,.94);box-shadow:0 12px 28px rgba(61,40,30,.055)}
+    .role-card[data-action="kasir"],
+    .role-card[data-action="finance"],
+    .role-card[data-action="hr"],
+    .role-card[data-action="investor"]{
+      min-height:126px;display:block;color:var(--ink);background:rgba(255,253,251,.97);border-color:rgba(226,214,205,.94);box-shadow:0 12px 28px rgba(61,40,30,.055)
+    }
+    .role-card[data-action="investor"]{grid-column:auto;padding:17px 16px;grid-template-columns:none;grid-template-rows:none}
+    .role-card[data-action="investor"] .role-icon{margin:0;background:#fff0ed;border-color:#f4d9d4}
+    .role-card[data-action="investor"] .role-icon svg{stroke:var(--red)}
+    .role-card[data-action="investor"] b{margin-top:14px;color:var(--ink)}
+    .role-card[data-action="investor"] span{margin-top:5px;color:var(--muted)}
+    .role-card[data-action="investor"]:after{position:absolute;right:14px;top:17px;grid-column:auto;grid-row:auto;color:#c8c0bb;font-size:19px}
+    .role-card[data-action="finance"],.role-card[data-action="hr"]{display:block;padding:17px 16px}
+    .role-card[data-action="finance"] .role-icon,.role-card[data-action="hr"] .role-icon{margin:0;display:grid;grid-row:auto}
+    .role-card[data-action="finance"] b,.role-card[data-action="hr"] b{margin-top:14px;align-self:auto}
+    .role-card[data-action="finance"] span,.role-card[data-action="hr"] span{margin-top:5px}
+    .role-card[data-action="owner"]{
+      grid-column:1/-1;min-height:104px;padding:17px 18px;display:grid;
+      grid-template-columns:48px 1fr auto;grid-template-rows:auto auto;column-gap:14px;align-items:center;
+      color:#fff;background:
+        radial-gradient(circle at 86% 50%,rgba(120,74,43,.17),transparent 24%),
+        linear-gradient(118deg,#1f1e1d 0%,#191817 66%,#26211e 100%);
+      border-color:#22201f;box-shadow:0 17px 36px rgba(28,22,19,.14);overflow:hidden
+    }
+    .role-card[data-action="owner"]:before{content:"";position:absolute;right:18px;bottom:-50px;width:255px;height:150px;background:radial-gradient(ellipse at center,rgba(111,68,39,.22),transparent 65%);transform:rotate(-8deg)}
+    .role-card[data-action="owner"] .role-icon{grid-row:1/span 2;margin:0;width:48px;height:48px;background:rgba(255,255,255,.09);border-color:rgba(255,255,255,.12);position:relative;z-index:1}
+    .role-card[data-action="owner"] .role-icon svg{stroke:#fff}
+    .role-card[data-action="owner"] b{margin:0;color:#fff;font-size:15px;align-self:end;position:relative;z-index:1}
+    .role-card[data-action="owner"] span{margin:4px 0 0;color:#c9c5c2;align-self:start;position:relative;z-index:1;max-width:none}
+    .role-card[data-action="owner"]:after{position:static;grid-column:3;grid-row:1/span 2;color:#a9a29e;font-size:23px;z-index:1}
+    .role-card:hover{transform:translateY(-1px);box-shadow:0 15px 32px rgba(61,40,30,.075)}
+    .role-card[data-action="owner"]:hover{border-color:#3a3532;box-shadow:0 19px 40px rgba(28,22,19,.17)}
+
+    @media(max-width:900px){
+      .role-grid{grid-template-columns:repeat(2,minmax(0,1fr))}
+      .content{max-width:760px}
+    }
+    @media(max-width:760px){
+      .hero{min-height:292px;padding:28px 15px 76px}
+      .hero-logo{width:112px;height:112px}.hero-logo img{width:112px;height:112px}
+      .hero-system-title{font-size:15px;margin-top:13px}
+      .system-pill{right:12px;top:14px;height:27px;padding:0 8px;font-size:7.8px}
+      .content{margin-top:-42px;padding:0 11px 30px}
+      .role-grid{grid-template-columns:repeat(2,minmax(0,1fr));gap:9px}
+      .role-card,.role-card[data-action="kasir"],.role-card[data-action="finance"],.role-card[data-action="hr"],.role-card[data-action="investor"]{min-height:118px;padding:14px;border-radius:20px}
+      .role-card[data-action="owner"]{min-height:92px;padding:14px;grid-template-columns:43px 1fr auto;column-gap:11px}
+      .role-card[data-action="owner"] .role-icon{width:43px;height:43px}
+      .role-card b,.role-card[data-action="owner"] b{font-size:13px}.role-card span{font-size:8.7px}
+      .bean.b2{right:13%;top:13%}.bean.b3{display:none}
+    }
+    @media(max-width:460px){
+      .hero{min-height:270px}.role-grid{grid-template-columns:1fr 1fr}.home-label{margin-left:2px}
+      .role-card{min-width:0}.role-card span{max-width:150px}
+      .system-pill span{display:none}.system-pill{width:28px;padding:0;justify-content:center}
+    }
+
   </style>
 </head>
 <body>
 <div id="shell">
-  <section class="hero"><div class="brand"><div class="brand-mark"><img src="icon-192.png" alt="Wills Coffee"></div><div class="brand-copy"><b>Wills Coffee</b><span>Operational System</span></div><div class="system-pill" id="systemPill"><i></i><span id="systemStatus">System Online</span></div></div><div class="hero-copy"><div class="kicker">Wills Command Center</div><h1 id="heroTitle">Satu pintu untuk operasional Wills.</h1><p id="heroDesc">Akses kasir, kontrol owner, finance, HR, dan investor dari satu aplikasi.</p><div class="hero-meta"><span>5 outlet terhubung</span><span>Central operations</span></div></div></section>
+  <section class="hero">
+    <div class="hero-decor" aria-hidden="true"><span class="hero-wave w1"></span><span class="hero-wave w2"></span><span class="bean b1"></span><span class="bean b2"></span><span class="bean b3"></span></div>
+    <div class="system-pill" id="systemPill"><i></i><span id="systemStatus">System Online</span></div>
+    <div class="hero-center"><div class="hero-logo"><img src="icon-512.png" alt="Wills Coffee"></div><div class="hero-system-title">Operational System</div></div>
+  </section>
   <main class="content"><div class="panel" id="panel"></div></main>
 </div>
 <div id="viewer">
@@ -119,11 +230,11 @@
 <div id="splash"><div class="splash-card"><img src="icon-512.png" alt="Wills Coffee"><div class="splash-title">Wills Coffee</div><div class="splash-sub">Menyiapkan Wills System…</div><div class="loader"></div></div></div>
 <div id="offline"><span>Koneksi internet terputus. Sistem Wills membutuhkan koneksi.</span><button id="reloadNet">Muat Ulang</button></div>
 <div id="installCard"><button id="closeInstall" aria-label="Tutup">×</button><img src="icon-192.png" alt=""><div class="install-copy"><strong>Pasang Wills Coffee</strong><span>Buka Wills System dari Home Screen tanpa address bar.</span></div><button id="installBtn">Pasang</button></div>
-<script src="config.js?v=10871"></script>
+<script src="config.js?v=10872"></script>
 <script>
 (()=>{
   const C=window.WILLS_CONFIG;
-  const panel=document.getElementById('panel'),heroTitle=document.getElementById('heroTitle'),heroDesc=document.getElementById('heroDesc');
+  const panel=document.getElementById('panel');
   const viewer=document.getElementById('viewer'),frame=document.getElementById('appFrame'),viewerTitle=document.getElementById('viewerTitle'),viewerSub=document.getElementById('viewerSub'),viewerLoading=document.getElementById('viewerLoading'),viewerLoadingText=document.getElementById('viewerLoadingText');
   let currentUrl='',currentScreen='home',viewerBackTimer=null,viewerBackAck=false,historyArmed=false,touchStartY=0;
   const outletById=id=>C.outlets.find(x=>x.id===id);
@@ -132,7 +243,7 @@
   const centralRoute=section=>withParam(withParam(C.masterBase||C.ownerAllOutletUrl,'app','owner'),'section',section);
   const esc=s=>String(s||'').replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
 
-  function setHero(title,desc){heroTitle.textContent=title;heroDesc.textContent=desc;window.scrollTo(0,0)}
+  function setHero(){window.scrollTo(0,0)}
   function backHead(title,sub,back){return `<div class="screen-head"><button class="back" data-action="${back}">‹</button><div><h2>${esc(title)}</h2><p>${esc(sub)}</p></div></div>`}
   function roleIcon(type){
     const icons={
@@ -144,7 +255,7 @@
     };return icons[type]||icons.kasir;
   }
   function cardIcon(type){return '<span class="badge role-mini">'+roleIcon(type)+'</span>';}
-  function home(push=true){currentScreen='home';setHero('Satu pintu untuk operasional Wills.','Akses kasir, kontrol owner, finance, HR, dan investor dari satu aplikasi.');panel.innerHTML=`<div class="home-label">Pilih akses</div><div class="role-grid"><button class="role-card" data-action="kasir"><div class="role-icon">${roleIcon('kasir')}</div><b>Kasir</b><span>Transaksi dan operasional harian outlet.</span></button><button class="role-card" data-action="owner"><div class="role-icon">${roleIcon('owner')}</div><b>Owner</b><span>Monitoring dan kontrol seluruh cabang.</span></button><button class="role-card" data-action="finance"><div class="role-icon">${roleIcon('finance')}</div><b>Finance</b><span>Arus kas & rekonsiliasi.</span></button><button class="role-card" data-action="hr"><div class="role-icon">${roleIcon('hr')}</div><b>HR</b><span>Tim, jadwal & payroll.</span></button><button class="role-card" data-action="investor"><div class="role-icon">${roleIcon('investor')}</div><b>Investor</b><span>Dashboard dan laporan investor.</span></button></div>`;if(push)pushLauncherState('home')}
+  function home(push=true){currentScreen='home';setHero();panel.innerHTML=`<div class="home-label">Pilih akses</div><div class="role-grid"><button class="role-card" data-action="kasir"><div class="role-icon">${roleIcon('kasir')}</div><b>Kasir</b><span>Transaksi dan operasional harian outlet.</span></button><button class="role-card" data-action="finance"><div class="role-icon">${roleIcon('finance')}</div><b>Finance</b><span>Arus kas & rekonsiliasi.</span></button><button class="role-card" data-action="hr"><div class="role-icon">${roleIcon('hr')}</div><b>HR</b><span>Tim, jadwal & payroll.</span></button><button class="role-card" data-action="investor"><div class="role-icon">${roleIcon('investor')}</div><b>Investor</b><span>Dashboard dan laporan investor.</span></button><button class="role-card" data-action="owner"><div class="role-icon">${roleIcon('owner')}</div><b>Owner</b><span>Monitoring dan kontrol seluruh cabang.</span></button></div>`;if(push)pushLauncherState('home')}
   function outletList(role,push=true){currentScreen=role;const label=role==='kasir'?'Kasir':'Owner';setHero(label+' Wills Coffee','Pilih outlet yang ingin dibuka.');const allOwner=role==='owner'?`<button class="outlet-card all-card" data-action="ownerall"><span class="outlet-left"><span class="badge"><img src="icon-192.png" alt="Wills Coffee"></span><span><b>Laporan All Outlet</b><small>Performa harian, penjualan, balancing, dan QC produksi 5 outlet</small></span></span><span class="arrow">›</span></button>`:'';panel.innerHTML=backHead('Pilih Outlet',label+' • 5 outlet','home')+`<div class="outlet-grid">${C.outlets.map(o=>`<button class="outlet-card" data-open-role="${role}" data-outlet="${o.id}"><span class="outlet-left">${cardIcon(role)}<span><b>${esc(o.name)}</b><small>${esc(o.code)} • ${label} Outlet ${esc(o.name)}</small></span></span><span class="arrow">›</span></button>`).join('')}${allOwner}</div>`;if(push)pushLauncherState(role)}
   function investorHome(push=true){currentScreen='investor';setHero('Investor Wills Coffee','Pilih akses investor. Identitas investor tidak ditampilkan di launcher.');panel.innerHTML=backHead('Investor','Dashboard dan laporan','home')+`<div class="outlet-grid"><button class="investor-card" data-action="investor1"><span class="outlet-left">${cardIcon('investor')}<span><b>Investor 1</b><small>Pasar Rebo • Tegal Munjul • UPI • All Outlet</small></span></span><span class="arrow">›</span></button><button class="investor-card" data-direct-investor="2"><span class="outlet-left">${cardIcon('investor')}<span><b>Investor 2</b><small>Dashboard Investor Cikopak</small></span></span><span class="arrow">›</span></button><button class="investor-card" data-direct-investor="3"><span class="outlet-left">${cardIcon('investor')}<span><b>Investor 3</b><small>Dashboard Investor Cipaisan</small></span></span><span class="arrow">›</span></button></div><div class="note">Dashboard investor outlet tetap memakai login/password dari masing-masing sistem outlet.</div>`;if(push)pushLauncherState('investor')}
   function investor1(push=true){currentScreen='investor1';setHero('Investor 1','Pilih dashboard outlet atau lihat laporan gabungan tiga outlet.');const ids=C.investors.investor1.outletIds;panel.innerHTML=backHead('Investor 1','Pasar Rebo • Tegal Munjul • UPI','investor')+`<div class="outlet-grid">${ids.map(id=>{const o=outletById(id);return `<button class="outlet-card" data-investor-outlet="${o.id}"><span class="outlet-left">${cardIcon('investor')}<span><b>${esc(o.name)}</b><small>${esc(o.code)} • Dashboard Investor ${esc(o.name)}</small></span></span><span class="arrow">›</span></button>`}).join('')}<button class="outlet-card all-card" data-action="alloutlet"><span class="outlet-left"><span class="badge"><img src="icon-192.png" alt="Wills Coffee"></span><span><b>Laporan All Outlet</b><small>Performa gabungan Pasar Rebo, Tegal Munjul, dan UPI</small></span></span><span class="arrow">›</span></button></div>`;if(push)pushLauncherState('investor1')}
@@ -155,7 +266,7 @@
   function ensureRootGuard(){if(historyArmed)return;try{history.replaceState({wills:true,screen:'home'},'',location.href);history.pushState({wills:true,screen:'home'},'',location.href);historyArmed=true}catch(e){}}
   function openViewer(url,title,sub){if(!url)return;currentUrl=url;viewerTitle.textContent=title;viewerSub.textContent=sub||'Wills Coffee';showViewerLoading('Memuat '+title+'…');frame.src=url;viewer.classList.add('show');try{history.pushState({wills:true,screen:'viewer'},'',location.href)}catch(e){}}
   function closeViewer(){clearTimeout(viewerBackTimer);viewerBackTimer=null;viewerBackAck=false;frame.src='about:blank';currentUrl='';viewer.classList.remove('show');hideViewerLoading()}
-  function requestInnerBack(fallback=true){if(!viewer.classList.contains('show'))return false;viewerBackAck=false;clearTimeout(viewerBackTimer);try{frame.contentWindow.postMessage({type:'WILLS_PWA_BACK',source:'github-pwa-v10.8.7.1'},'*')}catch(e){}if(fallback){viewerBackTimer=setTimeout(()=>{if(!viewerBackAck&&viewer.classList.contains('show')){closeViewer();pushLauncherState(currentScreen||'home')}},320)}return true}
+  function requestInnerBack(fallback=true){if(!viewer.classList.contains('show'))return false;viewerBackAck=false;clearTimeout(viewerBackTimer);try{frame.contentWindow.postMessage({type:'WILLS_PWA_BACK',source:'github-pwa-v10.8.7.2'},'*')}catch(e){}if(fallback){viewerBackTimer=setTimeout(()=>{if(!viewerBackAck&&viewer.classList.contains('show')){closeViewer();pushLauncherState(currentScreen||'home')}},320)}return true}
   function ownerAll(){if(!C.ownerAllOutletUrl){panel.insertAdjacentHTML('beforeend','<div class="note warn">Portal Owner All Outlet belum dihubungkan.</div>');return}openViewer(C.ownerAllOutletUrl,'Owner • All Outlet','5 Outlet • Wills Coffee')}
   function openCentral(section){const base=C.masterBase||C.ownerAllOutletUrl;if(!base){panel.insertAdjacentHTML('beforeend','<div class="note warn">URL Master Core belum diisi di config.js.</div>');return}openViewer(centralRoute(section),section==='finance'?'Finance Wills':'HR Wills',section==='finance'?'Finance Center • Semua Outlet':'HR Center • Semua Outlet')}
   function allOutlet(){if(!C.investor1AllOutletUrl){panel.insertAdjacentHTML('beforeend','<div class="note warn">Portal Laporan All Outlet belum dihubungkan.</div>');return}openViewer(C.investor1AllOutletUrl,'Investor 1 • All Outlet','Pasar Rebo + Tegal Munjul + UPI')}
@@ -177,7 +288,7 @@
   const splash=document.getElementById('splash');setTimeout(()=>splash.classList.add('hide'),700);
   const offline=document.getElementById('offline'),systemPill=document.getElementById('systemPill'),systemStatus=document.getElementById('systemStatus');function onlineState(){const online=navigator.onLine;offline.classList.toggle('show',!online);if(systemPill)systemPill.classList.toggle('offline',!online);if(systemStatus)systemStatus.textContent=online?'System Online':'System Offline'}window.addEventListener('online',onlineState);window.addEventListener('offline',onlineState);onlineState();document.getElementById('reloadNet').addEventListener('click',()=>location.reload());
   let installPrompt=null;const installCard=document.getElementById('installCard');window.addEventListener('beforeinstallprompt',e=>{e.preventDefault();installPrompt=e;if(!matchMedia('(display-mode: standalone)').matches)installCard.classList.add('show')});document.getElementById('installBtn').addEventListener('click',async()=>{if(!installPrompt)return;installPrompt.prompt();try{await installPrompt.userChoice}catch(e){}installPrompt=null;installCard.classList.remove('show')});document.getElementById('closeInstall').addEventListener('click',()=>installCard.classList.remove('show'));window.addEventListener('appinstalled',()=>installCard.classList.remove('show'));
-  if('serviceWorker'in navigator)window.addEventListener('load',()=>navigator.serviceWorker.register('./sw.js?v=10871').catch(()=>{}));
+  if('serviceWorker'in navigator)window.addEventListener('load',()=>navigator.serviceWorker.register('./sw.js?v=10872').catch(()=>{}));
 })();
 </script>
 </body>
