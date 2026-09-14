@@ -11,96 +11,104 @@
   <link rel="manifest" href="manifest.webmanifest">
   <link rel="icon" href="favicon.png">
   <link rel="apple-touch-icon" href="icon-192.png">
-  <!-- WILLS PWA v10.8.7.0 premium command center design refresh -->
+  <!-- WILLS PWA v10.8.7.1 premium brand UI refinement -->
   <title>Wills Coffee</title>
   <style>
 
     :root{
-      --red:#d41414;--red-deep:#8e0a0f;--red-soft:#fff0f1;--red-soft-2:#fff7f7;
-      --ink:#17181c;--ink-2:#2b2e34;--muted:#777d86;--line:#ececef;--line-strong:#e4e5e9;
-      --bg:#f4f5f7;--card:#ffffff;--dark:#16171a;--safe-top:env(safe-area-inset-top);--safe-bottom:env(safe-area-inset-bottom);
-      --shadow:0 18px 50px rgba(20,21,26,.08);--shadow-soft:0 10px 28px rgba(20,21,26,.06);
+      --red:#d41414;--red-deep:#9f0e13;--red-dark:#7e090d;--cream:#f7f3ef;--paper:#fffdfb;
+      --ink:#171717;--ink-2:#33302e;--muted:#7b7470;--line:#e9e2dc;--line-soft:#f1ebe6;
+      --white:#fff;--safe-top:env(safe-area-inset-top);--safe-bottom:env(safe-area-inset-bottom);
+      --shadow:0 12px 34px rgba(50,31,25,.07);--shadow-strong:0 18px 48px rgba(111,18,21,.13);
     }
     *{box-sizing:border-box}
-    html,body{margin:0;width:100%;min-height:100%;background:var(--bg);font-family:Inter,-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Arial,sans-serif;color:var(--ink);-webkit-tap-highlight-color:transparent;overscroll-behavior:none}
+    html,body{margin:0;width:100%;min-height:100%;background:var(--cream);font-family:Inter,-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Arial,sans-serif;color:var(--ink);-webkit-tap-highlight-color:transparent;overscroll-behavior:none}
     body{overflow-x:hidden}button{font:inherit;cursor:pointer}.hidden{display:none!important}
-    #shell{min-height:100vh;padding-top:var(--safe-top);padding-bottom:var(--safe-bottom);position:relative}
+    #shell{min-height:100vh;padding-top:var(--safe-top);padding-bottom:var(--safe-bottom);position:relative;background:var(--cream)}
 
-    .hero{position:relative;overflow:hidden;color:#fff;padding:22px 18px 72px;background:
-      radial-gradient(circle at 86% 4%,rgba(255,255,255,.17),transparent 22%),
-      radial-gradient(circle at 15% 85%,rgba(255,255,255,.07),transparent 28%),
-      linear-gradient(145deg,#e11c24 0%,#c00e17 48%,#8f0b10 100%)}
-    .hero:before,.hero:after{content:"";position:absolute;border:1px solid rgba(255,255,255,.12);border-radius:999px;transform:rotate(-18deg)}
-    .hero:before{width:340px;height:145px;right:-95px;top:-46px}.hero:after{width:250px;height:96px;left:-90px;bottom:-18px}
-    .brand{max-width:960px;margin:0 auto;display:flex;align-items:center;gap:12px;position:relative;z-index:2}
-    .brand-mark{width:54px;height:54px;border-radius:17px;display:grid;place-items:center;background:rgba(255,255,255,.13);border:1px solid rgba(255,255,255,.2);box-shadow:inset 0 1px rgba(255,255,255,.22);backdrop-filter:blur(12px)}
-    .brand img{width:44px;height:44px;object-fit:contain;display:block}
-    .brand-copy{min-width:0;flex:1}.brand b{font-size:20px;display:block;letter-spacing:-.035em}.brand span{display:block;font-size:10px;opacity:.76;margin-top:2px}
-    .system-pill{height:31px;padding:0 11px;border-radius:999px;background:rgba(20,20,22,.16);border:1px solid rgba(255,255,255,.18);display:flex;align-items:center;gap:7px;font-size:9px;font-weight:800;white-space:nowrap;backdrop-filter:blur(10px)}
-    .system-pill i{width:7px;height:7px;border-radius:50%;background:#fff;box-shadow:0 0 0 4px rgba(255,255,255,.13)}
-    .hero-copy{max-width:960px;margin:31px auto 0;position:relative;z-index:2}
-    .hero-copy .kicker{font-size:9px;font-weight:900;text-transform:uppercase;letter-spacing:.18em;opacity:.78}
-    .hero-copy h1{font-size:32px;line-height:1.08;margin:8px 0 7px;letter-spacing:-.05em;max-width:620px}
-    .hero-copy p{margin:0;max-width:590px;font-size:11px;line-height:1.6;opacity:.8}
-    .hero-meta{display:flex;flex-wrap:wrap;gap:7px;margin-top:17px}
-    .hero-meta span{font-size:9px;font-weight:750;padding:7px 10px;border-radius:999px;background:rgba(255,255,255,.10);border:1px solid rgba(255,255,255,.14);backdrop-filter:blur(10px)}
+    .hero{position:relative;overflow:hidden;color:#fff;padding:21px 18px 78px;background:linear-gradient(154deg,#df171d 0%,#c80d14 54%,#97090e 100%)}
+    .hero:before{content:"";position:absolute;width:330px;height:330px;border:1px solid rgba(255,255,255,.08);border-radius:50%;right:-205px;top:-172px}
+    .hero:after{content:"";position:absolute;width:210px;height:210px;border:1px solid rgba(255,255,255,.055);border-radius:50%;left:-152px;bottom:-125px}
+    .brand{max-width:860px;margin:0 auto;display:flex;align-items:center;gap:11px;position:relative;z-index:2}
+    .brand-mark{width:46px;height:46px;border-radius:14px;display:grid;place-items:center;background:#fff;border:1px solid rgba(255,255,255,.5);box-shadow:0 8px 24px rgba(89,0,4,.14)}
+    .brand img{width:39px;height:39px;object-fit:contain;display:block}
+    .brand-copy{min-width:0;flex:1}.brand b{font-size:18px;display:block;letter-spacing:-.035em}.brand span{display:block;font-size:9.5px;opacity:.72;margin-top:2px;letter-spacing:.02em}
+    .system-pill{height:29px;padding:0 10px;border-radius:999px;background:rgba(92,5,9,.2);border:1px solid rgba(255,255,255,.15);display:flex;align-items:center;gap:7px;font-size:8.5px;font-weight:800;white-space:nowrap}
+    .system-pill i{width:6px;height:6px;border-radius:50%;background:#fff;box-shadow:0 0 0 3px rgba(255,255,255,.12)}
+    .system-pill.offline{background:rgba(20,20,20,.24)}.system-pill.offline i{background:#f1c36b}
+    .hero-copy{max-width:860px;margin:35px auto 0;position:relative;z-index:2}
+    .hero-copy .kicker{font-size:8.5px;font-weight:850;text-transform:uppercase;letter-spacing:.2em;opacity:.7}
+    .hero-copy h1{font-size:34px;line-height:1.04;margin:9px 0 9px;letter-spacing:-.052em;max-width:650px;font-weight:850}
+    .hero-copy p{margin:0;max-width:570px;font-size:10.5px;line-height:1.65;opacity:.77}
+    .hero-meta{display:flex;align-items:center;gap:12px;margin-top:17px;font-size:8.5px;font-weight:750;letter-spacing:.02em;opacity:.72}
+    .hero-meta span{padding:0;background:none;border:0}.hero-meta span+span:before{content:'•';margin-right:12px;opacity:.55}
 
-    .content{max-width:960px;margin:-42px auto 0;padding:0 13px 34px;position:relative;z-index:4}
-    .panel{background:rgba(255,255,255,.96);border:1px solid rgba(255,255,255,.84);border-radius:27px;padding:18px;box-shadow:0 24px 60px rgba(58,14,16,.12),var(--shadow);backdrop-filter:blur(18px)}
-    .panel:before{content:"";display:block;width:42px;height:4px;border-radius:999px;background:#ececef;margin:0 auto 15px}
-    .screen-head{display:flex;align-items:center;gap:11px;margin-bottom:16px}
-    .back{width:42px;height:42px;border:1px solid var(--line);border-radius:14px;background:#fff;color:var(--ink);font-size:22px;box-shadow:var(--shadow-soft)}
-    .screen-head h2{font-size:17px;letter-spacing:-.025em;margin:0}.screen-head p{font-size:9.5px;color:var(--muted);margin:3px 0 0}
+    .content{max-width:860px;margin:-42px auto 0;padding:0 13px 34px;position:relative;z-index:4}
+    .panel{background:transparent;border:0;border-radius:0;padding:0;box-shadow:none}
+    .panel:before{display:none}
+    .home-label{font-size:9px;font-weight:850;text-transform:uppercase;letter-spacing:.16em;color:#9a8f88;margin:0 3px 11px}
+    .screen-head{display:flex;align-items:center;gap:11px;margin:0 0 12px;padding:9px 11px;background:var(--paper);border:1px solid var(--line);border-radius:18px;box-shadow:0 8px 24px rgba(56,36,28,.045)}
+    .back{width:39px;height:39px;border:1px solid var(--line);border-radius:13px;background:var(--paper);color:var(--ink);font-size:22px;box-shadow:none}
+    .screen-head h2{font-size:16px;letter-spacing:-.025em;margin:0}.screen-head p{font-size:9px;color:var(--muted);margin:3px 0 0}
 
-    .role-grid{display:grid;grid-template-columns:repeat(5,minmax(0,1fr));gap:10px}
-    .role-card,.outlet-card,.investor-card{appearance:none;border:1px solid var(--line);background:linear-gradient(180deg,#fff,#fdfdfd);color:var(--ink);transition:transform .14s ease,border-color .14s ease,box-shadow .14s ease;text-align:left}
-    .role-card{position:relative;border-radius:20px;padding:15px;min-height:146px;overflow:hidden}
-    .role-card:before{content:"";position:absolute;width:78px;height:78px;right:-30px;bottom:-30px;border-radius:50%;background:linear-gradient(135deg,transparent,rgba(212,20,20,.055))}
-    .role-card:hover,.outlet-card:hover,.investor-card:hover{border-color:#efc5c7;box-shadow:0 14px 30px rgba(159,13,18,.07)}
+    .role-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:10px}
+    .role-card,.outlet-card,.investor-card{appearance:none;color:var(--ink);text-align:left;-webkit-tap-highlight-color:transparent;transition:transform .13s ease,border-color .13s ease,box-shadow .13s ease}
+    .role-card{position:relative;border:1px solid var(--line);background:var(--paper);border-radius:22px;padding:16px;min-height:148px;overflow:hidden;box-shadow:0 8px 24px rgba(56,36,28,.045)}
+    .role-card[data-action="kasir"],.role-card[data-action="owner"]{min-height:162px}
+    .role-card[data-action="kasir"]{background:linear-gradient(148deg,#fffdfb,#fff8f5);border-color:#eadbd4}
+    .role-card[data-action="owner"]{background:linear-gradient(148deg,#fffdfb,#faf8f6)}
+    .role-card[data-action="finance"],.role-card[data-action="hr"]{min-height:116px;padding:14px 15px;display:grid;grid-template-columns:42px 1fr;grid-template-rows:auto auto;column-gap:11px;align-content:center}
+    .role-card[data-action="finance"] .role-icon,.role-card[data-action="hr"] .role-icon{grid-row:1 / span 2;margin:0}
+    .role-card[data-action="finance"] b,.role-card[data-action="hr"] b{margin:0;align-self:end}
+    .role-card[data-action="finance"] span,.role-card[data-action="hr"] span{margin-top:3px}
+    .role-card[data-action="investor"]{grid-column:1/-1;min-height:92px;padding:15px;display:grid;grid-template-columns:44px 1fr auto;grid-template-rows:auto auto;column-gap:12px;align-items:center;background:#201f1e;color:#fff;border-color:#201f1e;box-shadow:0 12px 28px rgba(28,24,22,.12)}
+    .role-card[data-action="investor"] .role-icon{grid-row:1/span 2;margin:0;background:rgba(255,255,255,.09);border-color:rgba(255,255,255,.1)}
+    .role-card[data-action="investor"] .role-icon svg{stroke:#fff}.role-card[data-action="investor"] b{margin:0;align-self:end}.role-card[data-action="investor"] span{margin:3px 0 0;color:#c9c6c4;align-self:start}.role-card[data-action="investor"]:after{position:static;grid-column:3;grid-row:1/span 2;color:#8f8b88;font-size:21px}
     .role-card:active,.outlet-card:active,.investor-card:active{transform:scale(.985)}
-    .role-icon{width:46px;height:46px;border-radius:15px;display:grid;place-items:center;background:var(--red-soft);border:1px solid #f9dadd;color:var(--red);box-shadow:inset 0 1px #fff}
-    .role-icon svg,.role-mini svg{width:24px;height:24px;fill:none;stroke:var(--red);stroke-width:1.8;stroke-linecap:round;stroke-linejoin:round}
-    .role-card b{display:block;margin-top:14px;font-size:13px;letter-spacing:-.02em}.role-card span{display:block;margin-top:5px;font-size:9.5px;color:var(--muted);line-height:1.45}
-    .role-card:after{content:'›';position:absolute;right:14px;top:18px;font-size:19px;color:#c8cbd0;font-weight:500}
+    .role-card:hover{border-color:#e3d5ce}.role-card[data-action="investor"]:hover{border-color:#393634}
+    .role-icon{width:45px;height:45px;border-radius:14px;display:grid;place-items:center;background:#fff0ed;border:1px solid #f4d9d4;color:var(--red)}
+    .role-icon svg,.role-mini svg{width:23px;height:23px;fill:none;stroke:var(--red);stroke-width:1.8;stroke-linecap:round;stroke-linejoin:round}
+    .role-card b{display:block;margin-top:15px;font-size:14px;letter-spacing:-.02em}.role-card span{display:block;margin-top:5px;font-size:9.3px;color:var(--muted);line-height:1.45;max-width:190px}
+    .role-card:after{content:'›';position:absolute;right:14px;top:17px;font-size:19px;color:#c8c0bb;font-weight:500}
 
-    .outlet-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:9px}
-    .outlet-card,.investor-card{border-radius:18px;display:flex;align-items:center;justify-content:space-between;gap:11px;padding:13px 14px;min-height:72px}
-    .outlet-left{display:flex;align-items:center;gap:11px;min-width:0}
-    .badge{width:44px;height:44px;border-radius:14px;display:grid;place-items:center;background:#f5f6f8;color:#4d535c;font-size:10px;font-weight:900;flex:none;border:1px solid #eceef1}
-    .role-mini{background:var(--red-soft)!important;border-color:#f7d8da!important;color:var(--red)!important}
-    .role-mini svg{width:21px;height:21px}.outlet-card b,.investor-card b{display:block;font-size:12px;letter-spacing:-.01em}.outlet-card small,.investor-card small{display:block;font-size:9.25px;color:var(--muted);margin-top:3px;line-height:1.42}
-    .arrow{color:#b7bbc2;font-size:19px}.all-card{border-color:#f0cacc;background:linear-gradient(180deg,#fffafa,#fff5f6)}.all-card .badge{background:#fff;overflow:hidden;padding:0}.all-card .badge img{width:100%;height:100%;object-fit:cover;border-radius:13px}
-    .note{margin-top:12px;border-radius:14px;padding:11px 12px;background:#f7f8fa;color:#6f7680;font-size:9.5px;line-height:1.55;border:1px solid #eff0f2}.note.warn{background:#fff8e9;color:#8d620b;border-color:#f7e6b8}
+    .outlet-grid{display:grid;grid-template-columns:1fr;gap:0;background:var(--paper);border:1px solid var(--line);border-radius:22px;overflow:hidden;box-shadow:0 10px 28px rgba(56,36,28,.045)}
+    .outlet-card,.investor-card{border:0;border-bottom:1px solid var(--line-soft);background:var(--paper);display:flex;align-items:center;justify-content:space-between;gap:11px;padding:13px 14px;min-height:72px}
+    .outlet-card:last-child,.investor-card:last-child{border-bottom:0}
+    .outlet-card:hover,.investor-card:hover{background:#fff9f6}.outlet-left{display:flex;align-items:center;gap:11px;min-width:0}
+    .badge{width:42px;height:42px;border-radius:13px;display:grid;place-items:center;background:#f7f2ee;color:#544e4a;font-size:9.5px;font-weight:900;flex:none;border:1px solid #eee4de}
+    .role-mini{background:#fff1ed!important;border-color:#f2ddd7!important;color:var(--red)!important}.role-mini svg{width:20px;height:20px}
+    .outlet-card b,.investor-card b{display:block;font-size:12px;letter-spacing:-.01em}.outlet-card small,.investor-card small{display:block;font-size:9px;color:var(--muted);margin-top:3px;line-height:1.42}
+    .arrow{color:#bbb3ae;font-size:19px}.all-card{background:#fff8f5}.all-card .badge{background:#fff;overflow:hidden;padding:0}.all-card .badge img{width:100%;height:100%;object-fit:cover;border-radius:12px}
+    .note{margin-top:11px;border-radius:14px;padding:11px 12px;background:#efe9e4;color:#716863;font-size:9.3px;line-height:1.55;border:0}.note.warn{background:#fff2dc;color:#8b610e}
 
     #viewer{position:fixed;inset:0;z-index:50;background:#fff;display:none;padding-top:var(--safe-top);overflow:hidden}#viewer.show{display:block}
-    .viewer-bar{height:58px;background:rgba(18,19,22,.97);color:#fff;display:flex;align-items:center;gap:8px;padding:0 10px;border-bottom:1px solid rgba(255,255,255,.06);backdrop-filter:blur(16px)}
-    .viewer-back,.viewer-home,.viewer-reload{border:1px solid rgba(255,255,255,.08);background:rgba(255,255,255,.08);color:#fff;border-radius:12px;height:38px}
-    .viewer-back,.viewer-home{width:38px;font-size:20px}.viewer-home{font-size:15px}.viewer-reload{padding:0 11px;font-weight:800;font-size:9.5px}
-    .viewer-title{min-width:0;flex:1}.viewer-title b{display:block;font-size:12px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}.viewer-title span{display:block;font-size:8.8px;color:#aeb2ba;margin-top:2px}
-    #frameWrap{height:calc(100% - 58px);overflow:hidden}#appFrame{width:100%;height:100%;border:0;background:#fff;display:block}
-    #viewerLoading{position:absolute;inset:58px 0 0;z-index:4;background:rgba(255,255,255,.94);display:none;place-items:center;text-align:center;color:#4f555d;font-size:10.5px;font-weight:800;backdrop-filter:blur(9px)}#viewerLoading.show{display:grid}
-    .viewer-load-card{display:grid;place-items:center;gap:12px}.viewer-spinner{width:34px;height:34px;border:4px solid #f3d7d9;border-top-color:var(--red);border-radius:50%;animation:spin .75s linear infinite}
+    .viewer-bar{height:56px;background:#171716;color:#fff;display:flex;align-items:center;gap:7px;padding:0 9px;border-bottom:1px solid rgba(255,255,255,.06)}
+    .viewer-back,.viewer-home,.viewer-reload{border:1px solid rgba(255,255,255,.08);background:rgba(255,255,255,.07);color:#fff;border-radius:11px;height:37px}
+    .viewer-back,.viewer-home{width:37px;font-size:20px}.viewer-home{font-size:15px}.viewer-reload{padding:0 11px;font-weight:800;font-size:9px}
+    .viewer-title{min-width:0;flex:1}.viewer-title b{display:block;font-size:11.5px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}.viewer-title span{display:block;font-size:8.5px;color:#aaa6a3;margin-top:2px}
+    #frameWrap{height:calc(100% - 56px);overflow:hidden}#appFrame{width:100%;height:100%;border:0;background:#fff;display:block}
+    #viewerLoading{position:absolute;inset:56px 0 0;z-index:4;background:rgba(255,253,251,.96);display:none;place-items:center;text-align:center;color:#554d48;font-size:10px;font-weight:800}#viewerLoading.show{display:grid}
+    .viewer-load-card{display:grid;place-items:center;gap:12px}.viewer-spinner{width:32px;height:32px;border:3px solid #efd9d2;border-top-color:var(--red);border-radius:50%;animation:spin .75s linear infinite}
 
-    #splash{position:fixed;inset:0;z-index:100;display:grid;place-items:center;background:radial-gradient(circle at 50% 36%,#e92931 0,#c50e17 38%,#87090e 100%);transition:.32s}
-    .splash-card{text-align:center;color:#fff}.splash-card img{width:132px;max-width:44vw;filter:drop-shadow(0 16px 30px rgba(0,0,0,.22))}.splash-title{font-size:21px;font-weight:900;margin-top:14px;letter-spacing:-.035em}.splash-sub{font-size:9.5px;opacity:.72;margin-top:4px}.loader{width:28px;height:28px;border:3px solid rgba(255,255,255,.23);border-top-color:#fff;border-radius:50%;margin:19px auto 0;animation:spin .8s linear infinite}@keyframes spin{to{transform:rotate(360deg)}}#splash.hide{opacity:0;visibility:hidden;pointer-events:none}
-    #offline{position:fixed;z-index:110;left:12px;right:12px;top:calc(12px + var(--safe-top));display:none;align-items:center;justify-content:space-between;gap:10px;background:#17181b;color:#fff;padding:11px 13px;border-radius:14px;box-shadow:0 14px 34px rgba(0,0,0,.18);font-size:10px}#offline.show{display:flex}#reloadNet{border:0;background:#fff;color:#17181b;border-radius:10px;padding:8px 11px;font-weight:800}
-    #installCard{position:fixed;z-index:120;left:14px;right:14px;bottom:calc(14px + var(--safe-bottom));display:none;background:rgba(255,255,255,.98);border:1px solid #ececef;border-radius:20px;padding:14px;box-shadow:0 18px 46px rgba(15,16,18,.18);gap:12px;align-items:center;backdrop-filter:blur(15px)}#installCard.show{display:flex}#installCard img{width:48px;height:48px;border-radius:13px}.install-copy{min-width:0;flex:1}.install-copy strong{display:block;font-size:12px}.install-copy span{display:block;margin-top:3px;font-size:9.5px;color:#777a82}#installBtn{border:0;background:var(--red);color:#fff;border-radius:11px;padding:10px 12px;font-size:10px;font-weight:850}#closeInstall{position:absolute;right:8px;top:5px;border:0;background:transparent;color:#999;font-size:18px}
+    #splash{position:fixed;inset:0;z-index:100;display:grid;place-items:center;background:linear-gradient(155deg,#dc171d,#ba0c12 55%,#8d090d);transition:.3s}
+    .splash-card{text-align:center;color:#fff}.splash-card img{width:120px;max-width:40vw;filter:drop-shadow(0 15px 28px rgba(0,0,0,.18))}.splash-title{font-size:19px;font-weight:900;margin-top:13px;letter-spacing:-.035em}.splash-sub{font-size:9px;opacity:.68;margin-top:4px}.loader{width:26px;height:26px;border:3px solid rgba(255,255,255,.22);border-top-color:#fff;border-radius:50%;margin:18px auto 0;animation:spin .8s linear infinite}@keyframes spin{to{transform:rotate(360deg)}}#splash.hide{opacity:0;visibility:hidden;pointer-events:none}
+    #offline{position:fixed;z-index:110;left:12px;right:12px;top:calc(12px + var(--safe-top));display:none;align-items:center;justify-content:space-between;gap:10px;background:#171716;color:#fff;padding:11px 13px;border-radius:14px;box-shadow:0 14px 34px rgba(0,0,0,.18);font-size:9.5px}#offline.show{display:flex}#reloadNet{border:0;background:#fff;color:#171716;border-radius:10px;padding:8px 11px;font-weight:800}
+    #installCard{position:fixed;z-index:120;left:14px;right:14px;bottom:calc(14px + var(--safe-bottom));display:none;background:rgba(255,253,251,.98);border:1px solid var(--line);border-radius:19px;padding:14px;box-shadow:var(--shadow-strong);gap:12px;align-items:center}#installCard.show{display:flex}#installCard img{width:46px;height:46px;border-radius:13px}.install-copy{min-width:0;flex:1}.install-copy strong{display:block;font-size:11.5px}.install-copy span{display:block;margin-top:3px;font-size:9px;color:var(--muted)}#installBtn{border:0;background:var(--red);color:#fff;border-radius:11px;padding:10px 12px;font-size:9.5px;font-weight:850}#closeInstall{position:absolute;right:8px;top:5px;border:0;background:transparent;color:#999;font-size:18px}
 
     @media(max-width:760px){
-      .hero{padding:18px 15px 65px}.brand-mark{width:50px;height:50px;border-radius:16px}.brand img{width:41px;height:41px}.brand b{font-size:18px}.system-pill{height:29px;padding:0 9px;font-size:8.5px}
-      .hero-copy{margin-top:25px}.hero-copy h1{font-size:28px}.hero-copy p{font-size:10px}.hero-meta{margin-top:14px}.hero-meta span{font-size:8.5px;padding:6px 9px}
-      .content{margin-top:-38px;padding:0 10px 28px}.panel{padding:14px;border-radius:24px}.panel:before{margin-bottom:13px}
-      .role-grid{grid-template-columns:repeat(2,minmax(0,1fr));gap:9px}.role-card{min-height:132px;padding:13px}.role-card:last-child{grid-column:1 / -1;min-height:110px}.role-icon{width:43px;height:43px}.role-card b{margin-top:12px;font-size:12px}.role-card span{font-size:9px}
-      .outlet-grid{grid-template-columns:1fr}.outlet-card,.investor-card{min-height:68px;padding:12px}.viewer-reload{font-size:0;width:38px;padding:0}.viewer-reload:after{content:'↻';font-size:17px}
+      .hero{padding:18px 15px 72px}.brand-mark{width:44px;height:44px;border-radius:13px}.brand img{width:37px;height:37px}.brand b{font-size:17px}.system-pill{height:28px;padding:0 9px;font-size:8px}
+      .hero-copy{margin-top:32px}.hero-copy h1{font-size:31px;max-width:340px}.hero-copy p{font-size:10px;max-width:330px}.hero-meta{margin-top:16px;font-size:8px}
+      .content{margin-top:-39px;padding:0 11px 28px}.role-grid{gap:9px}.role-card{border-radius:20px;padding:14px;min-height:140px}.role-card[data-action="kasir"],.role-card[data-action="owner"]{min-height:150px}.role-card[data-action="finance"],.role-card[data-action="hr"]{min-height:108px;grid-template-columns:39px 1fr;column-gap:10px;padding:13px}.role-card[data-action="investor"]{min-height:86px;padding:13px;grid-template-columns:41px 1fr auto}.role-icon{width:42px;height:42px;border-radius:13px}.role-card b{font-size:13px}.role-card span{font-size:8.8px}.screen-head{margin-bottom:11px;padding:8px 10px;border-radius:17px}.outlet-grid{border-radius:20px}
+      .outlet-card,.investor-card{min-height:68px;padding:12px 13px}.viewer-reload{font-size:0;width:37px;padding:0}.viewer-reload:after{content:'↻';font-size:17px}
     }
-    @media(max-width:380px){.system-pill span{display:none}.system-pill{width:30px;padding:0;justify-content:center}.hero-copy h1{font-size:26px}.role-grid{gap:8px}.role-card{min-height:126px}}
+    @media(max-width:380px){.system-pill span{display:none}.system-pill{width:28px;padding:0;justify-content:center}.hero-copy h1{font-size:28px}.role-grid{gap:8px}.role-card{padding:13px}.role-card[data-action="finance"],.role-card[data-action="hr"]{grid-template-columns:36px 1fr}.role-icon{width:39px;height:39px}}
     @media(display-mode:standalone){#installCard{display:none!important}}
 
   </style>
 </head>
 <body>
 <div id="shell">
-  <section class="hero"><div class="brand"><div class="brand-mark"><img src="icon-192.png" alt="Wills Coffee"></div><div class="brand-copy"><b>Wills Coffee</b><span>Wills Operational System</span></div><div class="system-pill"><i></i><span>System Online</span></div></div><div class="hero-copy"><div class="kicker">Wills Command Center</div><h1 id="heroTitle">Pilih akses yang ingin dibuka.</h1><p id="heroDesc">Kasir, Owner, Finance, HR, dan Investor dalam satu aplikasi Wills Coffee.</p><div class="hero-meta"><span>5 Outlet Terhubung</span><span>Finance & HR Central</span><span>Mobile First</span></div></div></section>
+  <section class="hero"><div class="brand"><div class="brand-mark"><img src="icon-192.png" alt="Wills Coffee"></div><div class="brand-copy"><b>Wills Coffee</b><span>Operational System</span></div><div class="system-pill" id="systemPill"><i></i><span id="systemStatus">System Online</span></div></div><div class="hero-copy"><div class="kicker">Wills Command Center</div><h1 id="heroTitle">Satu pintu untuk operasional Wills.</h1><p id="heroDesc">Akses kasir, kontrol owner, finance, HR, dan investor dari satu aplikasi.</p><div class="hero-meta"><span>5 outlet terhubung</span><span>Central operations</span></div></div></section>
   <main class="content"><div class="panel" id="panel"></div></main>
 </div>
 <div id="viewer">
@@ -111,7 +119,7 @@
 <div id="splash"><div class="splash-card"><img src="icon-512.png" alt="Wills Coffee"><div class="splash-title">Wills Coffee</div><div class="splash-sub">Menyiapkan Wills System…</div><div class="loader"></div></div></div>
 <div id="offline"><span>Koneksi internet terputus. Sistem Wills membutuhkan koneksi.</span><button id="reloadNet">Muat Ulang</button></div>
 <div id="installCard"><button id="closeInstall" aria-label="Tutup">×</button><img src="icon-192.png" alt=""><div class="install-copy"><strong>Pasang Wills Coffee</strong><span>Buka Wills System dari Home Screen tanpa address bar.</span></div><button id="installBtn">Pasang</button></div>
-<script src="config.js?v=10870"></script>
+<script src="config.js?v=10871"></script>
 <script>
 (()=>{
   const C=window.WILLS_CONFIG;
@@ -136,7 +144,7 @@
     };return icons[type]||icons.kasir;
   }
   function cardIcon(type){return '<span class="badge role-mini">'+roleIcon(type)+'</span>';}
-  function home(push=true){currentScreen='home';setHero('Pilih akses yang ingin dibuka.','Kasir, Owner, Finance, HR, dan Investor dalam satu aplikasi Wills Coffee.');panel.innerHTML=`<div class="role-grid"><button class="role-card" data-action="kasir"><div class="role-icon">${roleIcon('kasir')}</div><b>Kasir</b><span>Transaksi dan operasional outlet.</span></button><button class="role-card" data-action="owner"><div class="role-icon">${roleIcon('owner')}</div><b>Owner</b><span>Monitoring dan kontrol setiap cabang.</span></button><button class="role-card" data-action="finance"><div class="role-icon">${roleIcon('finance')}</div><b>Finance</b><span>Arus kas, balancing, rekonsiliasi, laporan mingguan & bulanan.</span></button><button class="role-card" data-action="hr"><div class="role-icon">${roleIcon('hr')}</div><b>HR</b><span>Absensi, jadwal, tugas, payroll dan penilaian.</span></button><button class="role-card" data-action="investor"><div class="role-icon">${roleIcon('investor')}</div><b>Investor</b><span>Dashboard investor dan laporan gabungan.</span></button></div>`;if(push)pushLauncherState('home')}
+  function home(push=true){currentScreen='home';setHero('Satu pintu untuk operasional Wills.','Akses kasir, kontrol owner, finance, HR, dan investor dari satu aplikasi.');panel.innerHTML=`<div class="home-label">Pilih akses</div><div class="role-grid"><button class="role-card" data-action="kasir"><div class="role-icon">${roleIcon('kasir')}</div><b>Kasir</b><span>Transaksi dan operasional harian outlet.</span></button><button class="role-card" data-action="owner"><div class="role-icon">${roleIcon('owner')}</div><b>Owner</b><span>Monitoring dan kontrol seluruh cabang.</span></button><button class="role-card" data-action="finance"><div class="role-icon">${roleIcon('finance')}</div><b>Finance</b><span>Arus kas & rekonsiliasi.</span></button><button class="role-card" data-action="hr"><div class="role-icon">${roleIcon('hr')}</div><b>HR</b><span>Tim, jadwal & payroll.</span></button><button class="role-card" data-action="investor"><div class="role-icon">${roleIcon('investor')}</div><b>Investor</b><span>Dashboard dan laporan investor.</span></button></div>`;if(push)pushLauncherState('home')}
   function outletList(role,push=true){currentScreen=role;const label=role==='kasir'?'Kasir':'Owner';setHero(label+' Wills Coffee','Pilih outlet yang ingin dibuka.');const allOwner=role==='owner'?`<button class="outlet-card all-card" data-action="ownerall"><span class="outlet-left"><span class="badge"><img src="icon-192.png" alt="Wills Coffee"></span><span><b>Laporan All Outlet</b><small>Performa harian, penjualan, balancing, dan QC produksi 5 outlet</small></span></span><span class="arrow">›</span></button>`:'';panel.innerHTML=backHead('Pilih Outlet',label+' • 5 outlet','home')+`<div class="outlet-grid">${C.outlets.map(o=>`<button class="outlet-card" data-open-role="${role}" data-outlet="${o.id}"><span class="outlet-left">${cardIcon(role)}<span><b>${esc(o.name)}</b><small>${esc(o.code)} • ${label} Outlet ${esc(o.name)}</small></span></span><span class="arrow">›</span></button>`).join('')}${allOwner}</div>`;if(push)pushLauncherState(role)}
   function investorHome(push=true){currentScreen='investor';setHero('Investor Wills Coffee','Pilih akses investor. Identitas investor tidak ditampilkan di launcher.');panel.innerHTML=backHead('Investor','Dashboard dan laporan','home')+`<div class="outlet-grid"><button class="investor-card" data-action="investor1"><span class="outlet-left">${cardIcon('investor')}<span><b>Investor 1</b><small>Pasar Rebo • Tegal Munjul • UPI • All Outlet</small></span></span><span class="arrow">›</span></button><button class="investor-card" data-direct-investor="2"><span class="outlet-left">${cardIcon('investor')}<span><b>Investor 2</b><small>Dashboard Investor Cikopak</small></span></span><span class="arrow">›</span></button><button class="investor-card" data-direct-investor="3"><span class="outlet-left">${cardIcon('investor')}<span><b>Investor 3</b><small>Dashboard Investor Cipaisan</small></span></span><span class="arrow">›</span></button></div><div class="note">Dashboard investor outlet tetap memakai login/password dari masing-masing sistem outlet.</div>`;if(push)pushLauncherState('investor')}
   function investor1(push=true){currentScreen='investor1';setHero('Investor 1','Pilih dashboard outlet atau lihat laporan gabungan tiga outlet.');const ids=C.investors.investor1.outletIds;panel.innerHTML=backHead('Investor 1','Pasar Rebo • Tegal Munjul • UPI','investor')+`<div class="outlet-grid">${ids.map(id=>{const o=outletById(id);return `<button class="outlet-card" data-investor-outlet="${o.id}"><span class="outlet-left">${cardIcon('investor')}<span><b>${esc(o.name)}</b><small>${esc(o.code)} • Dashboard Investor ${esc(o.name)}</small></span></span><span class="arrow">›</span></button>`}).join('')}<button class="outlet-card all-card" data-action="alloutlet"><span class="outlet-left"><span class="badge"><img src="icon-192.png" alt="Wills Coffee"></span><span><b>Laporan All Outlet</b><small>Performa gabungan Pasar Rebo, Tegal Munjul, dan UPI</small></span></span><span class="arrow">›</span></button></div>`;if(push)pushLauncherState('investor1')}
@@ -147,7 +155,7 @@
   function ensureRootGuard(){if(historyArmed)return;try{history.replaceState({wills:true,screen:'home'},'',location.href);history.pushState({wills:true,screen:'home'},'',location.href);historyArmed=true}catch(e){}}
   function openViewer(url,title,sub){if(!url)return;currentUrl=url;viewerTitle.textContent=title;viewerSub.textContent=sub||'Wills Coffee';showViewerLoading('Memuat '+title+'…');frame.src=url;viewer.classList.add('show');try{history.pushState({wills:true,screen:'viewer'},'',location.href)}catch(e){}}
   function closeViewer(){clearTimeout(viewerBackTimer);viewerBackTimer=null;viewerBackAck=false;frame.src='about:blank';currentUrl='';viewer.classList.remove('show');hideViewerLoading()}
-  function requestInnerBack(fallback=true){if(!viewer.classList.contains('show'))return false;viewerBackAck=false;clearTimeout(viewerBackTimer);try{frame.contentWindow.postMessage({type:'WILLS_PWA_BACK',source:'github-pwa-v10.8.7.0'},'*')}catch(e){}if(fallback){viewerBackTimer=setTimeout(()=>{if(!viewerBackAck&&viewer.classList.contains('show')){closeViewer();pushLauncherState(currentScreen||'home')}},320)}return true}
+  function requestInnerBack(fallback=true){if(!viewer.classList.contains('show'))return false;viewerBackAck=false;clearTimeout(viewerBackTimer);try{frame.contentWindow.postMessage({type:'WILLS_PWA_BACK',source:'github-pwa-v10.8.7.1'},'*')}catch(e){}if(fallback){viewerBackTimer=setTimeout(()=>{if(!viewerBackAck&&viewer.classList.contains('show')){closeViewer();pushLauncherState(currentScreen||'home')}},320)}return true}
   function ownerAll(){if(!C.ownerAllOutletUrl){panel.insertAdjacentHTML('beforeend','<div class="note warn">Portal Owner All Outlet belum dihubungkan.</div>');return}openViewer(C.ownerAllOutletUrl,'Owner • All Outlet','5 Outlet • Wills Coffee')}
   function openCentral(section){const base=C.masterBase||C.ownerAllOutletUrl;if(!base){panel.insertAdjacentHTML('beforeend','<div class="note warn">URL Master Core belum diisi di config.js.</div>');return}openViewer(centralRoute(section),section==='finance'?'Finance Wills':'HR Wills',section==='finance'?'Finance Center • Semua Outlet':'HR Center • Semua Outlet')}
   function allOutlet(){if(!C.investor1AllOutletUrl){panel.insertAdjacentHTML('beforeend','<div class="note warn">Portal Laporan All Outlet belum dihubungkan.</div>');return}openViewer(C.investor1AllOutletUrl,'Investor 1 • All Outlet','Pasar Rebo + Tegal Munjul + UPI')}
@@ -167,9 +175,9 @@
   ensureRootGuard();
   const params=new URLSearchParams(location.search),section=(params.get('section')||'').toLowerCase();if(section==='kasir')outletList('kasir',false);else if(section==='owner')outletList('owner',false);else if(section==='finance'||section==='hr')openCentral(section);else if(section==='investor')investorHome(false);else home(false);
   const splash=document.getElementById('splash');setTimeout(()=>splash.classList.add('hide'),700);
-  const offline=document.getElementById('offline');function onlineState(){offline.classList.toggle('show',!navigator.onLine)}window.addEventListener('online',onlineState);window.addEventListener('offline',onlineState);onlineState();document.getElementById('reloadNet').addEventListener('click',()=>location.reload());
+  const offline=document.getElementById('offline'),systemPill=document.getElementById('systemPill'),systemStatus=document.getElementById('systemStatus');function onlineState(){const online=navigator.onLine;offline.classList.toggle('show',!online);if(systemPill)systemPill.classList.toggle('offline',!online);if(systemStatus)systemStatus.textContent=online?'System Online':'System Offline'}window.addEventListener('online',onlineState);window.addEventListener('offline',onlineState);onlineState();document.getElementById('reloadNet').addEventListener('click',()=>location.reload());
   let installPrompt=null;const installCard=document.getElementById('installCard');window.addEventListener('beforeinstallprompt',e=>{e.preventDefault();installPrompt=e;if(!matchMedia('(display-mode: standalone)').matches)installCard.classList.add('show')});document.getElementById('installBtn').addEventListener('click',async()=>{if(!installPrompt)return;installPrompt.prompt();try{await installPrompt.userChoice}catch(e){}installPrompt=null;installCard.classList.remove('show')});document.getElementById('closeInstall').addEventListener('click',()=>installCard.classList.remove('show'));window.addEventListener('appinstalled',()=>installCard.classList.remove('show'));
-  if('serviceWorker'in navigator)window.addEventListener('load',()=>navigator.serviceWorker.register('./sw.js?v=10870').catch(()=>{}));
+  if('serviceWorker'in navigator)window.addEventListener('load',()=>navigator.serviceWorker.register('./sw.js?v=10871').catch(()=>{}));
 })();
 </script>
 </body>

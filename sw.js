@@ -1,4 +1,4 @@
-const CACHE='wills-pwa-v10.8.7.0-premium-command-center';
+const CACHE='wills-pwa-v10.8.7.1-premium-brand-ui-refinement';
 
 const STATIC=[
   './',

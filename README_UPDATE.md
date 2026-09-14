@@ -1,26 +1,36 @@
-# WILLS PWA — v10.8.7.0 Premium Command Center
+# WILLS PWA v10.8.7.1 — PREMIUM BRAND UI REFINEMENT
 
-Tanggal: 13 September 2026
+Tanggal: 14 September 2026
 
-## Fokus update
-- Desain PWA shell / launcher saja.
-- Tampilan Android mobile-first, lebih premium, futuristik, clean, dan ringan.
-- Identitas tetap Wills merah-putih, tanpa mengubah route atau backend.
-- Home menampilkan Kasir, Owner, Finance, HR, dan Investor.
-- Kasir/Owner tetap memilih 5 outlet yang sama.
-- Finance & HR tetap menuju Master Core.
-- Owner All Outlet dan Investor tetap memakai URL existing.
-- Navigasi viewer, Back, Home, reload, offline, install prompt tetap dipertahankan.
+## Tujuan
+Refinement visual launcher GitHub Wills Coffee agar terasa lebih premium, clean, mobile-first, dan lebih kuat sebagai aplikasi brand Wills — bukan dashboard admin template.
 
-## File yang diganti di GitHub PWA
+## Yang berubah
+- Home hierarchy baru: Kasir + Owner sebagai akses utama.
+- Finance + HR dibuat lebih ringkas.
+- Investor menjadi akses khusus full-width.
+- Hero merah Wills dibuat lebih bersih dan editorial.
+- Panel putih besar / card berlapis dikurangi.
+- Outlet list dibuat satu kolom yang lebih tenang dan mudah dipindai di HP.
+- Status `System Online` sekarang ikut berubah menjadi `System Offline` saat koneksi putus.
+- Cache Service Worker dinaikkan ke v10.8.7.1.
+
+## Yang TIDAK berubah
+- `config.js` / seluruh URL Apps Script produksi.
+- Routing Kasir, Owner, Finance, HR, dan Investor.
+- Daftar 5 outlet.
+- Owner All Outlet.
+- Investor 1/2/3 dan Investor 1 All Outlet.
+- Backend Apps Script, Google Sheets, transaksi, Revenue, Arus Kas, HPP, Finance ledger, HR ledger.
+
+## File yang perlu replace di GitHub
 1. `index.html`
-2. `config.js` (isinya tetap memakai URL production yang sekarang)
-3. `sw.js`
+2. `sw.js`
+3. `VERSION.txt`
+4. `README_UPDATE.md`
+5. `STATIC_QA.json`
+6. `SHA256.json`
 
-Asset icon lama tetap dipakai: `icon-192.png`, `icon-512.png`, `favicon.png`, `manifest.webmanifest`. Tidak perlu diganti bila sudah ada di repo.
+`config.js` disertakan sebagai referensi canonical dan tidak diubah.
 
-## Cara pasang
-Upload/replace 3 file di root GitHub PWA, commit ke branch production/main yang dipakai, lalu buka ulang PWA. Bila desain lama masih muncul, tutup PWA lalu buka lagi atau clear site cache satu kali.
-
-## Catatan keamanan
-Build ini tidak menyentuh transaksi, HPP, stok, Revenue, Arus Kas, periode, Finance ledger, HR ledger, atau spreadsheet outlet. Ini adalah UI shell / navigation refresh.
+Status: STATIC QA only. Live production tetap perlu test setelah update GitHub.

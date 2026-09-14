@@ -1,13 +1,18 @@
 {
-  "version": "2026-09-13.10.8.7.0-pwa-premium-command-center-design-only",
+  "version": "2026-09-14.10.8.7.1-pwa-premium-brand-ui-refinement",
   "static_only": true,
   "checks": {
-    "has_home_roles": true,
+    "home_has_5_roles": true,
+    "home_hierarchy_refined": true,
     "has_5_outlet_config": true,
+    "config_unchanged_from_v10_8_7_0": true,
     "master_route_preserved": true,
     "owner_all_preserved": true,
-    "investor_all_preserved": true,
+    "investor_routes_preserved": true,
     "viewer_preserved": true,
+    "dynamic_online_offline_status": true,
+    "service_worker_cache_bumped": true,
+    "javascript_syntax_pass": true,
     "version_marked": true
   },
   "ok": true
