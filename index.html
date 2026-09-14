@@ -78,7 +78,7 @@
     .badge{width:42px;height:42px;border-radius:13px;display:grid;place-items:center;background:#f7f2ee;color:#544e4a;font-size:9.5px;font-weight:900;flex:none;border:1px solid #eee4de}
     .role-mini{background:#fff1ed!important;border-color:#f2ddd7!important;color:var(--red)!important}.role-mini svg{width:20px;height:20px}
     .outlet-card b,.investor-card b{display:block;font-size:12px;letter-spacing:-.01em}.outlet-card small,.investor-card small{display:block;font-size:9px;color:var(--muted);margin-top:3px;line-height:1.42}
-    .arrow{color:#bbb3ae;font-size:19px}.all-card{background:#fff8f5}.all-card .badge{background:#fff;overflow:hidden;padding:0}.all-card .badge img{width:100%;height:100%;object-fit:cover;border-radius:12px}
+    .arrow{color:#bbb3ae;font-size:19px}.all-card{background:#fff8f5}.all-card .badge{background:transparent;overflow:visible;padding:4px}.all-card .badge img{width:100%;height:100%;object-fit:contain;border-radius:0;background:transparent}
     .note{margin-top:11px;border-radius:14px;padding:11px 12px;background:#efe9e4;color:#716863;font-size:9.3px;line-height:1.55;border:0}.note.warn{background:#fff2dc;color:#8b610e}
 
     #viewer{position:fixed;inset:0;z-index:50;background:#fff;display:none;padding-top:var(--safe-top);overflow:hidden}#viewer.show{display:block}
@@ -144,7 +144,7 @@
     .bean.b3{right:8%;bottom:10%;transform:rotate(68deg) scale(.58);opacity:.36}
     .hero-center{position:relative;z-index:3;display:grid;place-items:center;text-align:center;margin-top:0}
     .hero-logo{width:142px;height:142px;display:grid;place-items:center}
-    .hero-logo img{width:142px;height:142px;display:block;object-fit:contain;filter:drop-shadow(0 22px 30px rgba(79,0,4,.24))}
+    .hero-logo img{width:142px;height:142px;display:block;object-fit:contain;background:transparent!important;filter:drop-shadow(0 18px 24px rgba(79,0,4,.20))}
     .hero-system-title{margin-top:15px;font-size:18px;font-weight:750;letter-spacing:.015em;color:#fff;text-shadow:0 2px 10px rgba(77,0,0,.18)}
     .system-pill{position:absolute;right:22px;top:24px;z-index:4;background:rgba(72,5,8,.24);border-color:rgba(255,255,255,.17)}
     .brand,.hero-copy{display:none!important}
@@ -218,7 +218,7 @@
   <section class="hero">
     <div class="hero-decor" aria-hidden="true"><span class="hero-wave w1"></span><span class="hero-wave w2"></span><span class="bean b1"></span><span class="bean b2"></span><span class="bean b3"></span></div>
     <div class="system-pill" id="systemPill"><i></i><span id="systemStatus">System Online</span></div>
-    <div class="hero-center"><div class="hero-logo"><img src="icon-512.png" alt="Wills Coffee"></div><div class="hero-system-title">Operational System</div></div>
+    <div class="hero-center"><div class="hero-logo"><img src="wills-logo-white.png" alt="Wills Coffee"></div><div class="hero-system-title">Operational System</div></div>
   </section>
   <main class="content"><div class="panel" id="panel"></div></main>
 </div>
@@ -227,9 +227,9 @@
   <div id="frameWrap"><iframe id="appFrame" title="Wills Coffee" allow="clipboard-read; clipboard-write; fullscreen; autoplay" referrerpolicy="no-referrer-when-downgrade"></iframe></div>
   <div id="viewerLoading"><div class="viewer-load-card"><div class="viewer-spinner"></div><div id="viewerLoadingText">Memuat Wills System…</div></div></div>
 </div>
-<div id="splash"><div class="splash-card"><img src="icon-512.png" alt="Wills Coffee"><div class="splash-title">Wills Coffee</div><div class="splash-sub">Menyiapkan Wills System…</div><div class="loader"></div></div></div>
+<div id="splash"><div class="splash-card"><img src="wills-logo-white.png" alt="Wills Coffee"><div class="splash-title">Wills Coffee</div><div class="splash-sub">Menyiapkan Wills System…</div><div class="loader"></div></div></div>
 <div id="offline"><span>Koneksi internet terputus. Sistem Wills membutuhkan koneksi.</span><button id="reloadNet">Muat Ulang</button></div>
-<div id="installCard"><button id="closeInstall" aria-label="Tutup">×</button><img src="icon-192.png" alt=""><div class="install-copy"><strong>Pasang Wills Coffee</strong><span>Buka Wills System dari Home Screen tanpa address bar.</span></div><button id="installBtn">Pasang</button></div>
+<div id="installCard"><button id="closeInstall" aria-label="Tutup">×</button><img src="wills-logo-red.png" alt=""><div class="install-copy"><strong>Pasang Wills Coffee</strong><span>Buka Wills System dari Home Screen tanpa address bar.</span></div><button id="installBtn">Pasang</button></div>
 <script src="config.js?v=10872"></script>
 <script>
 (()=>{
@@ -256,9 +256,9 @@
   }
   function cardIcon(type){return '<span class="badge role-mini">'+roleIcon(type)+'</span>';}
   function home(push=true){currentScreen='home';setHero();panel.innerHTML=`<div class="home-label">Pilih akses</div><div class="role-grid"><button class="role-card" data-action="kasir"><div class="role-icon">${roleIcon('kasir')}</div><b>Kasir</b><span>Transaksi dan operasional harian outlet.</span></button><button class="role-card" data-action="finance"><div class="role-icon">${roleIcon('finance')}</div><b>Finance</b><span>Arus kas & rekonsiliasi.</span></button><button class="role-card" data-action="hr"><div class="role-icon">${roleIcon('hr')}</div><b>HR</b><span>Tim, jadwal & payroll.</span></button><button class="role-card" data-action="investor"><div class="role-icon">${roleIcon('investor')}</div><b>Investor</b><span>Dashboard dan laporan investor.</span></button><button class="role-card" data-action="owner"><div class="role-icon">${roleIcon('owner')}</div><b>Owner</b><span>Monitoring dan kontrol seluruh cabang.</span></button></div>`;if(push)pushLauncherState('home')}
-  function outletList(role,push=true){currentScreen=role;const label=role==='kasir'?'Kasir':'Owner';setHero(label+' Wills Coffee','Pilih outlet yang ingin dibuka.');const allOwner=role==='owner'?`<button class="outlet-card all-card" data-action="ownerall"><span class="outlet-left"><span class="badge"><img src="icon-192.png" alt="Wills Coffee"></span><span><b>Laporan All Outlet</b><small>Performa harian, penjualan, balancing, dan QC produksi 5 outlet</small></span></span><span class="arrow">›</span></button>`:'';panel.innerHTML=backHead('Pilih Outlet',label+' • 5 outlet','home')+`<div class="outlet-grid">${C.outlets.map(o=>`<button class="outlet-card" data-open-role="${role}" data-outlet="${o.id}"><span class="outlet-left">${cardIcon(role)}<span><b>${esc(o.name)}</b><small>${esc(o.code)} • ${label} Outlet ${esc(o.name)}</small></span></span><span class="arrow">›</span></button>`).join('')}${allOwner}</div>`;if(push)pushLauncherState(role)}
+  function outletList(role,push=true){currentScreen=role;const label=role==='kasir'?'Kasir':'Owner';setHero(label+' Wills Coffee','Pilih outlet yang ingin dibuka.');const allOwner=role==='owner'?`<button class="outlet-card all-card" data-action="ownerall"><span class="outlet-left"><span class="badge logo-badge"><img src="wills-logo-red.png" alt="Wills Coffee"></span><span><b>Laporan All Outlet</b><small>Performa harian, penjualan, balancing, dan QC produksi 5 outlet</small></span></span><span class="arrow">›</span></button>`:'';panel.innerHTML=backHead('Pilih Outlet',label+' • 5 outlet','home')+`<div class="outlet-grid">${C.outlets.map(o=>`<button class="outlet-card" data-open-role="${role}" data-outlet="${o.id}"><span class="outlet-left">${cardIcon(role)}<span><b>${esc(o.name)}</b><small>${esc(o.code)} • ${label} Outlet ${esc(o.name)}</small></span></span><span class="arrow">›</span></button>`).join('')}${allOwner}</div>`;if(push)pushLauncherState(role)}
   function investorHome(push=true){currentScreen='investor';setHero('Investor Wills Coffee','Pilih akses investor. Identitas investor tidak ditampilkan di launcher.');panel.innerHTML=backHead('Investor','Dashboard dan laporan','home')+`<div class="outlet-grid"><button class="investor-card" data-action="investor1"><span class="outlet-left">${cardIcon('investor')}<span><b>Investor 1</b><small>Pasar Rebo • Tegal Munjul • UPI • All Outlet</small></span></span><span class="arrow">›</span></button><button class="investor-card" data-direct-investor="2"><span class="outlet-left">${cardIcon('investor')}<span><b>Investor 2</b><small>Dashboard Investor Cikopak</small></span></span><span class="arrow">›</span></button><button class="investor-card" data-direct-investor="3"><span class="outlet-left">${cardIcon('investor')}<span><b>Investor 3</b><small>Dashboard Investor Cipaisan</small></span></span><span class="arrow">›</span></button></div><div class="note">Dashboard investor outlet tetap memakai login/password dari masing-masing sistem outlet.</div>`;if(push)pushLauncherState('investor')}
-  function investor1(push=true){currentScreen='investor1';setHero('Investor 1','Pilih dashboard outlet atau lihat laporan gabungan tiga outlet.');const ids=C.investors.investor1.outletIds;panel.innerHTML=backHead('Investor 1','Pasar Rebo • Tegal Munjul • UPI','investor')+`<div class="outlet-grid">${ids.map(id=>{const o=outletById(id);return `<button class="outlet-card" data-investor-outlet="${o.id}"><span class="outlet-left">${cardIcon('investor')}<span><b>${esc(o.name)}</b><small>${esc(o.code)} • Dashboard Investor ${esc(o.name)}</small></span></span><span class="arrow">›</span></button>`}).join('')}<button class="outlet-card all-card" data-action="alloutlet"><span class="outlet-left"><span class="badge"><img src="icon-192.png" alt="Wills Coffee"></span><span><b>Laporan All Outlet</b><small>Performa gabungan Pasar Rebo, Tegal Munjul, dan UPI</small></span></span><span class="arrow">›</span></button></div>`;if(push)pushLauncherState('investor1')}
+  function investor1(push=true){currentScreen='investor1';setHero('Investor 1','Pilih dashboard outlet atau lihat laporan gabungan tiga outlet.');const ids=C.investors.investor1.outletIds;panel.innerHTML=backHead('Investor 1','Pasar Rebo • Tegal Munjul • UPI','investor')+`<div class="outlet-grid">${ids.map(id=>{const o=outletById(id);return `<button class="outlet-card" data-investor-outlet="${o.id}"><span class="outlet-left">${cardIcon('investor')}<span><b>${esc(o.name)}</b><small>${esc(o.code)} • Dashboard Investor ${esc(o.name)}</small></span></span><span class="arrow">›</span></button>`}).join('')}<button class="outlet-card all-card" data-action="alloutlet"><span class="outlet-left"><span class="badge logo-badge"><img src="wills-logo-red.png" alt="Wills Coffee"></span><span><b>Laporan All Outlet</b><small>Performa gabungan Pasar Rebo, Tegal Munjul, dan UPI</small></span></span><span class="arrow">›</span></button></div>`;if(push)pushLauncherState('investor1')}
 
   function showViewerLoading(text){viewerLoadingText.textContent=text||'Memuat Wills System…';viewerLoading.classList.add('show')}
   function hideViewerLoading(){viewerLoading.classList.remove('show')}
@@ -293,3 +293,5 @@
 </script>
 </body>
 </html>
+
+<!-- v10.8.7.3 transparent logo assets -->

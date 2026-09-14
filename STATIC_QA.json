@@ -1,26 +1,16 @@
 {
-  "version": "2026-09-14.10.8.7.2-pwa-centered-brand-owner-featured",
+  "version": "2026-09-14.10.8.7.3-pwa-transparent-logo-assets",
   "static_only": true,
   "checks": {
-    "javascript_syntax_pass": true,
-    "service_worker_syntax_pass": true,
-    "config_unchanged_from_v10_8_7_1": true,
-    "hero_logo_centered": true,
-    "hero_only_operational_system_copy": true,
-    "old_hero_marketing_copy_removed": true,
-    "owner_featured_dark_card": true,
-    "investor_access_preserved": true,
-    "kasir_route_preserved": true,
-    "finance_route_preserved": true,
-    "hr_route_preserved": true,
-    "owner_routes_preserved": true,
-    "investor_routes_preserved": true,
-    "owner_all_url_preserved": true,
-    "viewer_preserved": true,
-    "dynamic_online_offline_status": true,
+    "transparent_white_logo_png": true,
+    "transparent_red_logo_png": true,
+    "hero_uses_transparent_logo": true,
+    "splash_uses_transparent_logo": true,
+    "light_surfaces_use_red_transparent_logo": true,
     "service_worker_cache_bumped": true,
-    "owner_all_internal_ui_changed": false
+    "service_worker_caches_new_logo_assets": true,
+    "config_unchanged": true,
+    "production_routes_preserved": true
   },
-  "owner_all_internal_ui_note": "Separate Apps Script source required; current PWA only embeds ownerAllOutletUrl via iframe.",
   "ok": true
 }
