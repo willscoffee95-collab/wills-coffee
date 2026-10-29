@@ -1,4 +1,4 @@
-const CACHE='wills-pwa-v10.8.8.2-compact-kasir-grid';
+const CACHE='wills-pwa-v10.8.9.0-owner-areas-safe-back';
 const STATIC=['./','./index.html','./config.js','./manifest.webmanifest','./icon-192.png','./icon-512.png','./wills-logo.png'];
 self.addEventListener('install',event=>{event.waitUntil(caches.open(CACHE).then(cache=>cache.addAll(STATIC)).catch(()=>{}));self.skipWaiting();});
 self.addEventListener('activate',event=>{event.waitUntil(caches.keys().then(keys=>Promise.all(keys.filter(key=>key!==CACHE&&key.startsWith('wills-')).map(key=>caches.delete(key)))));self.clients.claim();});
