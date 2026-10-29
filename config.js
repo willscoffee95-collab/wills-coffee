@@ -14,11 +14,11 @@ window.WILLS_CONFIG = Object.freeze({
     Object.freeze({id:"tm", name:"Tegal Munjul", code:"TM", displayCode:"TGM", region:"Purwakarta", base:"https://script.google.com/macros/s/AKfycbyFIv7Rm6lYZevuA-zY5_ZLE2KOrP_Vs4FQ9dthuasutgDjV3YRfH7x3X-0I_7yxy51/exec"}),
     Object.freeze({id:"cikopak", name:"Cikopak", code:"CPK", displayCode:"CPK", region:"Purwakarta", base:"https://script.google.com/macros/s/AKfycbydPrJ8xRJ13ad0sggMJhJ1d5UzHU6UjFvABf0mGQe7pKrV2dzMQ51wj1lRT9rQ3G58Ug/exec"}),
     Object.freeze({id:"cipaisan", name:"Cipaisan", code:"CPS", displayCode:"CPS", region:"Purwakarta", base:"https://script.google.com/macros/s/AKfycbyOcJvoJm6CgFc-6Qv7mrAeG2N0FFt9b2XXz1w8iiuJP61I8_xqqcg9TJ9qmAJJE7mEIA/exec"}),
-    Object.freeze({id:"bip", name:"BIP", code:"BIP", displayCode:"BIP", region:"Purwakarta", base:""}),
-    Object.freeze({id:"pwr", name:"Pawarengan", code:"PWR", displayCode:"PWR", region:"Cikampek", base:""}),
-    Object.freeze({id:"snpt", name:"Senopati", code:"SNPT", displayCode:"SNPT", region:"Cikampek", base:""}),
-    Object.freeze({id:"cko", name:"Cikopo", code:"CKO", displayCode:"CKO", region:"Cikampek", base:""}),
-    Object.freeze({id:"ckbr", name:"Cikbar", code:"CKBR", displayCode:"CKBR", region:"Cikampek", base:""})
+    Object.freeze({id:"bip", name:"BIP", code:"BIP", displayCode:"BIP", region:"Purwakarta", base:"https://script.google.com/macros/s/AKfycbyL-7yaV0fON4INVL__Q_KqjML1850a2pfNEjZX2iVOprVANypUaoiOl7TGsqvujb9W/exec"}),
+    Object.freeze({id:"pwr", name:"Pawarengan", code:"PWR", displayCode:"PWR", region:"Cikampek", base:"https://script.google.com/macros/s/AKfycbzQO_eS2U1SA20t8xdDj29NNS8-qdRDMeO3DxjSEgaxnK3sWMNx0UaBEC9H5xY4uNqIgQ/exec"}),
+    Object.freeze({id:"snpt", name:"Senopati", code:"SNPT", displayCode:"SNPT", region:"Cikampek", base:"https://script.google.com/macros/s/AKfycbwnYfWx4HZ-3svznbyW5EcVy7y6iS8ahLi_XbJjMCP6Xzrn0QNpUz_VCiAzE03WwecbyQ/exec"}),
+    Object.freeze({id:"cko", name:"Cikopo", code:"CKO", displayCode:"CKO", region:"Cikampek", base:"https://script.google.com/macros/s/AKfycbyli7yQTlouY-7UvvLWLfs724wA-Zw4h2oAa6MfXXOe7AyoGT1HEu4r5gODyVYZqEiB3Q/exec"}),
+    Object.freeze({id:"ckbr", name:"Cikbar", code:"CKBR", displayCode:"CKBR", region:"Cikampek", base:"https://script.google.com/macros/s/AKfycbz2rF2Jsk_s8z1xh4sxFvdrS_CNzNXArhad-sGPAZo05nT4xbeFOlGrbQQ1JlNvDCz1/exec"})
   ]),
 
   investors: Object.freeze({
