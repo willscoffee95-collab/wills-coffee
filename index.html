@@ -84,6 +84,26 @@
     .outlet-card.is-unlinked:hover{background:var(--paper)}
     .outlet-card.is-unlinked .pending-link{color:#a0682d;font-size:9px;font-weight:700}
     @media(max-width:380px){.area-grid{gap:8px}.area-card{min-height:146px;padding:14px 12px;border-radius:18px}.area-card strong{font-size:12.5px}}
+    /* v10.8.8.2: compact 2-column Kasir outlet selection, independent of Owner/Investor lists */
+    .kasir-outlet-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:10px;background:transparent;border:0;overflow:visible;box-shadow:none;border-radius:0}
+    .kasir-outlet-card{position:relative;appearance:none;display:flex;flex-direction:column;align-items:flex-start;min-width:0;min-height:115px;padding:13px;border-radius:18px;border:1px solid var(--line);background:var(--paper);box-shadow:0 5px 16px rgba(56,36,28,.045);color:var(--ink);text-align:left;cursor:pointer;-webkit-tap-highlight-color:transparent;transition:border-color .15s,transform .15s,background .15s}
+    .kasir-outlet-card:hover{border-color:#e0c6bd;background:#fffcfa}
+    .kasir-outlet-card:active{transform:scale(.98)}
+    .kasir-outlet-card .tile-icon{width:32px;height:32px;display:grid;place-items:center;border:1px solid #f2ddd7;border-radius:10px;background:#fff1ed;color:var(--red)}
+    .kasir-outlet-card .tile-icon svg{width:18px;height:18px;fill:none;stroke:var(--red);stroke-width:1.8;stroke-linecap:round;stroke-linejoin:round}
+    .kasir-outlet-card .tile-code{position:absolute;right:12px;top:16px;font-size:9px;font-weight:800;letter-spacing:.05em;color:#9f5344}
+    .kasir-outlet-card .tile-name{display:block;max-width:100%;margin-top:12px;font-size:12px;font-weight:800;line-height:1.25;overflow-wrap:anywhere}
+    .kasir-outlet-card .tile-sub{display:block;margin-top:4px;font-size:9px;color:var(--muted)}
+    .kasir-outlet-card:focus-visible,.area-card:focus-visible{outline:3px solid rgba(212,20,20,.35);outline-offset:2px}
+    .kasir-outlet-card.is-unlinked{cursor:default;opacity:.6}
+    @media(max-width:480px){
+      .kasir-outlet-grid{gap:8px}
+      .kasir-outlet-card{min-height:106px;padding:11px;border-radius:16px}
+      .kasir-outlet-card .tile-name{margin-top:10px;font-size:11.5px}
+      .area-card{min-height:126px;padding:14px}
+      .area-card strong{margin-top:11px}
+    }
+    @media(min-width:760px){.kasir-outlet-grid{grid-template-columns:repeat(3,minmax(0,1fr))}}
     .outlet-grid{display:grid;grid-template-columns:1fr;gap:0;background:var(--paper);border:1px solid var(--line);border-radius:22px;overflow:hidden;box-shadow:0 10px 28px rgba(56,36,28,.045)}
     .outlet-card,.investor-card{border:0;border-bottom:1px solid var(--line-soft);background:var(--paper);display:flex;align-items:center;justify-content:space-between;gap:11px;padding:13px 14px;min-height:72px}
     .outlet-card:last-child,.investor-card:last-child{border-bottom:0}
@@ -243,7 +263,7 @@
 <div id="splash"><div class="splash-card"><img src="wills-logo.png" alt="Wills Coffee"><div class="splash-title">Wills Coffee</div><div class="splash-sub">Menyiapkan Wills System…</div><div class="loader"></div></div></div>
 <div id="offline"><span>Koneksi internet terputus. Sistem Wills membutuhkan koneksi.</span><button id="reloadNet">Muat Ulang</button></div>
 <div id="installCard"><button id="closeInstall" aria-label="Tutup">×</button><img src="wills-logo.png" alt=""><div class="install-copy"><strong>Pasang Wills Coffee</strong><span>Buka Wills System dari Home Screen tanpa address bar.</span></div><button id="installBtn">Pasang</button></div>
-<script src="config.js?v=10881"></script>
+<script src="config.js?v=10882"></script>
 <script>
 (()=>{
   const C=window.WILLS_CONFIG;
@@ -292,12 +312,18 @@
       const linked=typeof o.base==='string'&&/^https:\/\/script\.google\.com\/macros\/s\/[^/]+\/exec(?:\?.*)?$/.test(o.base);
       const code=esc(o.displayCode||o.code);
       const title=esc(o.name),id=esc(o.id);
+      if(inKasir){
+        const content=`<span class="tile-icon">${roleIcon('kasir')}</span><span class="tile-code">${code}</span><strong class="tile-name">${title}</strong><span class="tile-sub">${linked?'Buka Kasir':'URL belum tersedia'}</span>`;
+        return linked
+          ?`<button type="button" class="kasir-outlet-card" data-open-role="kasir" data-outlet="${id}" aria-label="Buka Kasir ${title}">${content}</button>`
+          :`<div class="kasir-outlet-card is-unlinked" aria-label="Kasir ${title} belum tersedia">${content}</div>`;
+      }
       return linked
         ?`<button type="button" class="outlet-card" data-open-role="${role}" data-outlet="${id}"><span class="outlet-left">${cardIcon(role)}<span><b>${title}</b><small>${code} • ${label} Outlet ${title}</small></span></span><span class="arrow">›</span></button>`
         :`<div class="outlet-card is-unlinked" aria-label="${title}, URL Web App belum ditautkan"><span class="outlet-left">${cardIcon(role)}<span><b>${title}</b><small>${code} • ${label} Outlet ${title}</small><span class="pending-link">Menunggu URL Web App Kasir</span></span></span></div>`;
     }).join('');
     panel.innerHTML=backHead(inKasir?'Area '+labelArea:'Pilih Outlet',label+' • '+rows.length+' outlet',inKasir?'kasir-area':'home')+
-      '<div class="outlet-grid">'+cards+allOwner+'</div>';
+      '<div class="'+(inKasir?'kasir-outlet-grid':'outlet-grid')+'">'+cards+allOwner+'</div>';
     if(push)pushLauncherState(currentScreen);
   }
   function investorHome(push=true){currentScreen='investor';setHero('Investor Wills Coffee','Pilih akses investor. Identitas investor tidak ditampilkan di launcher.');panel.innerHTML=backHead('Investor','Dashboard dan laporan','home')+`<div class="outlet-grid"><button class="investor-card" data-action="investor1"><span class="outlet-left">${cardIcon('investor')}<span><b>Investor 1</b><small>Pasar Rebo • Tegal Munjul • UPI • All Outlet</small></span></span><span class="arrow">›</span></button><button class="investor-card" data-direct-investor="2"><span class="outlet-left">${cardIcon('investor')}<span><b>Investor 2</b><small>Dashboard Investor Cikopak</small></span></span><span class="arrow">›</span></button><button class="investor-card" data-direct-investor="3"><span class="outlet-left">${cardIcon('investor')}<span><b>Investor 3</b><small>Dashboard Investor Cipaisan</small></span></span><span class="arrow">›</span></button></div><div class="note">Dashboard investor outlet tetap memakai login/password dari masing-masing sistem outlet.</div>`;if(push)pushLauncherState('investor')}
@@ -331,7 +357,7 @@
   const splash=document.getElementById('splash');setTimeout(()=>splash.classList.add('hide'),700);
   const offline=document.getElementById('offline'),systemPill=document.getElementById('systemPill'),systemStatus=document.getElementById('systemStatus');function onlineState(){const online=navigator.onLine;offline.classList.toggle('show',!online);if(systemPill)systemPill.classList.toggle('offline',!online);if(systemStatus)systemStatus.textContent=online?'System Online':'System Offline'}window.addEventListener('online',onlineState);window.addEventListener('offline',onlineState);onlineState();document.getElementById('reloadNet').addEventListener('click',()=>location.reload());
   let installPrompt=null;const installCard=document.getElementById('installCard');window.addEventListener('beforeinstallprompt',e=>{e.preventDefault();installPrompt=e;if(!matchMedia('(display-mode: standalone)').matches)installCard.classList.add('show')});document.getElementById('installBtn').addEventListener('click',async()=>{if(!installPrompt)return;installPrompt.prompt();try{await installPrompt.userChoice}catch(e){}installPrompt=null;installCard.classList.remove('show')});document.getElementById('closeInstall').addEventListener('click',()=>installCard.classList.remove('show'));window.addEventListener('appinstalled',()=>installCard.classList.remove('show'));
-  if('serviceWorker'in navigator)window.addEventListener('load',()=>navigator.serviceWorker.register('./sw.js?v=10881').catch(()=>{}));
+  if('serviceWorker'in navigator)window.addEventListener('load',()=>navigator.serviceWorker.register('./sw.js?v=10882').catch(()=>{}));
 })();
 </script>
 </body>
