@@ -243,7 +243,7 @@
 <div id="splash"><div class="splash-card"><img src="wills-logo.png" alt="Wills Coffee"><div class="splash-title">Wills Coffee</div><div class="splash-sub">Menyiapkan Wills System…</div><div class="loader"></div></div></div>
 <div id="offline"><span>Koneksi internet terputus. Sistem Wills membutuhkan koneksi.</span><button id="reloadNet">Muat Ulang</button></div>
 <div id="installCard"><button id="closeInstall" aria-label="Tutup">×</button><img src="wills-logo.png" alt=""><div class="install-copy"><strong>Pasang Wills Coffee</strong><span>Buka Wills System dari Home Screen tanpa address bar.</span></div><button id="installBtn">Pasang</button></div>
-<script src="config.js?v=10880"></script>
+<script src="config.js?v=10881"></script>
 <script>
 (()=>{
   const C=window.WILLS_CONFIG;
@@ -331,7 +331,7 @@
   const splash=document.getElementById('splash');setTimeout(()=>splash.classList.add('hide'),700);
   const offline=document.getElementById('offline'),systemPill=document.getElementById('systemPill'),systemStatus=document.getElementById('systemStatus');function onlineState(){const online=navigator.onLine;offline.classList.toggle('show',!online);if(systemPill)systemPill.classList.toggle('offline',!online);if(systemStatus)systemStatus.textContent=online?'System Online':'System Offline'}window.addEventListener('online',onlineState);window.addEventListener('offline',onlineState);onlineState();document.getElementById('reloadNet').addEventListener('click',()=>location.reload());
   let installPrompt=null;const installCard=document.getElementById('installCard');window.addEventListener('beforeinstallprompt',e=>{e.preventDefault();installPrompt=e;if(!matchMedia('(display-mode: standalone)').matches)installCard.classList.add('show')});document.getElementById('installBtn').addEventListener('click',async()=>{if(!installPrompt)return;installPrompt.prompt();try{await installPrompt.userChoice}catch(e){}installPrompt=null;installCard.classList.remove('show')});document.getElementById('closeInstall').addEventListener('click',()=>installCard.classList.remove('show'));window.addEventListener('appinstalled',()=>installCard.classList.remove('show'));
-  if('serviceWorker'in navigator)window.addEventListener('load',()=>navigator.serviceWorker.register('./sw.js?v=10880').catch(()=>{}));
+  if('serviceWorker'in navigator)window.addEventListener('load',()=>navigator.serviceWorker.register('./sw.js?v=10881').catch(()=>{}));
 })();
 </script>
 </body>
