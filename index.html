@@ -11,7 +11,7 @@
   <link rel="manifest" href="manifest.webmanifest">
   <link rel="icon" href="favicon.png">
   <link rel="apple-touch-icon" href="icon-192.png">
-  <!-- WILLS PWA v10.8.9.0 owner areas + safe back -->
+  <!-- WILLS PWA v10.9.0 premium clean UI; routes and outlet data unchanged -->
   <title>Wills Coffee</title>
   <style>
 
@@ -245,6 +245,197 @@
       .system-pill span{display:none}.system-pill{width:28px;padding:0;justify-content:center}
     }
 
+
+    /* WILLS PWA Premium Clean — v10.9.0 — UI ONLY, no routing / backend edits */
+    :root{
+      --cream:#f5f6f8;--paper:#ffffff;--ink:#202631;--ink-2:#303641;
+      --muted:#717985;--line:#e6e9ee;--line-soft:#edf0f3;
+      --shadow:0 10px 30px rgba(30,40,60,.045);--shadow-strong:0 16px 42px rgba(30,40,60,.09);
+    }
+    html,body,#shell{background:#f5f6f8!important}
+    #shell{background-image:none!important}
+    .hero{
+      min-height:210px!important;padding:30px 24px 79px!important;display:flex!important;
+      align-items:center!important;place-items:initial!important;
+      background:linear-gradient(120deg,#b8101c 0%,#d41521 62%,#e12933 100%)!important;
+    }
+    .hero:before,.hero:after,.hero-decor{display:none!important}
+    .hero-center{
+      width:100%;max-width:1080px;margin:0 auto!important;
+      display:flex!important;place-items:initial!important;align-items:center!important;
+      justify-content:flex-start!important;gap:17px;text-align:left!important;
+    }
+    .hero-logo{width:105px;height:79px;flex:none;display:grid;place-items:center}
+    .hero-logo img{width:102px;height:76px;max-width:100%;object-fit:contain;filter:drop-shadow(0 7px 12px rgba(81,0,0,.12))}
+    .hero-system-title{margin:0!important;font-size:clamp(18px,2.1vw,24px)!important;font-weight:800!important;line-height:1.25;letter-spacing:-.03em!important;text-shadow:none!important}
+    .system-pill{top:21px!important;right:22px!important;background:rgba(0,0,0,.15)!important;border-color:rgba(255,255,255,.20)!important}
+    .content{max-width:1080px!important;margin:-49px auto 0!important;padding:0 18px 56px!important}
+    .panel:after{display:none!important}
+    .home-intro{
+      padding:24px 27px;background:#fff;border:1px solid #e9ecf0;
+      border-radius:24px;box-shadow:0 14px 38px rgba(30,40,60,.075);
+    }
+    .home-intro .home-kicker{font-size:10px;font-weight:850;letter-spacing:.12em;color:#c91520}
+    .home-intro h2{font-size:clamp(20px,3vw,27px);line-height:1.2;letter-spacing:-.045em;margin:7px 0 7px;color:#1e2631}
+    .home-intro p{font-size:12px;line-height:1.6;margin:0;color:#717985}
+    .home-label{font-size:10px!important;color:#66717d!important;letter-spacing:.11em!important;font-weight:800!important;margin:23px 4px 12px!important}
+    .role-grid{display:grid!important;grid-template-columns:repeat(4,minmax(0,1fr))!important;gap:12px!important}
+    .role-card{
+      transition:transform .20s ease,box-shadow .20s ease,border-color .20s ease,background .20s ease!important;
+      -webkit-tap-highlight-color:transparent;
+    }
+    .role-grid .role-card[data-action="kasir"]{
+      grid-column:1/-1!important;position:relative!important;display:grid!important;
+      grid-template-columns:64px minmax(0,1fr) auto!important;grid-template-rows:auto auto!important;
+      column-gap:18px!important;min-height:142px!important;padding:24px!important;
+      align-items:center!important;text-align:left!important;
+      border:1px solid #c60e1c!important;border-radius:24px!important;
+      color:#fff!important;background:linear-gradient(125deg,#b8101c 0%,#d71927 100%)!important;
+      box-shadow:0 16px 31px rgba(167,16,31,.16)!important;
+    }
+    .role-grid .role-card[data-action="kasir"] .role-icon{
+      width:64px!important;height:64px!important;grid-row:1/span 2!important;margin:0!important;
+      border-radius:19px!important;background:rgba(255,255,255,.14)!important;border:1px solid rgba(255,255,255,.2)!important;
+    }
+    .role-grid .role-card[data-action="kasir"] .role-icon svg{width:30px!important;height:30px!important;stroke:#fff!important}
+    .role-grid .role-card[data-action="kasir"] b{font-size:23px!important;margin:0!important;color:#fff!important;align-self:end!important;line-height:1.2}
+    .role-grid .role-card[data-action="kasir"] > span{color:#ffe4e7!important;font-size:12px!important;line-height:1.5!important;margin:5px 0 0!important;max-width:none!important;align-self:start!important}
+    .role-grid .role-card[data-action="kasir"]:after{position:static!important;grid-column:3!important;grid-row:1/span 2!important;color:rgba(255,255,255,.9)!important;font-size:28px!important}
+    .role-grid .role-card:not([data-action="kasir"]){
+      min-width:0!important;min-height:158px!important;padding:19px!important;grid-column:auto!important;
+      display:flex!important;flex-direction:column!important;align-items:flex-start!important;justify-content:flex-start!important;
+      grid-template-columns:none!important;grid-template-rows:none!important;
+      border:1px solid #e6e9ee!important;border-radius:21px!important;
+      color:#202631!important;background:#fff!important;
+      box-shadow:0 7px 22px rgba(30,40,60,.04)!important;
+    }
+    .role-grid .role-card:not([data-action="kasir"]):before{display:none!important}
+    .role-grid .role-card:not([data-action="kasir"]) .role-icon{
+      margin:0!important;grid-row:auto!important;width:46px!important;height:46px!important;
+      display:grid!important;place-items:center!important;
+      border:1px solid #f4dadd!important;border-radius:15px!important;background:#fff2f3!important;color:#c91520!important;
+    }
+    .role-grid .role-card:not([data-action="kasir"]) .role-icon svg{width:23px!important;height:23px!important;stroke:#c91520!important}
+    .role-grid .role-card:not([data-action="kasir"]) b{
+      display:block!important;margin:17px 0 0!important;color:#202631!important;
+      font-size:15px!important;font-weight:800!important;line-height:1.2!important;align-self:auto!important;
+    }
+    .role-grid .role-card:not([data-action="kasir"]) > span{
+      display:block!important;margin:6px 0 0!important;max-width:100%!important;
+      color:#717985!important;font-size:10px!important;line-height:1.5!important;align-self:auto!important;
+    }
+    .role-grid .role-card:not([data-action="kasir"]):after{
+      position:absolute!important;top:19px!important;right:16px!important;
+      grid-column:auto!important;grid-row:auto!important;font-size:20px!important;color:#b7bdc6!important;
+    }
+    .screen-head{
+      background:#fff!important;border:1px solid #e6e9ee!important;border-radius:19px!important;
+      padding:12px 15px!important;box-shadow:0 8px 24px rgba(30,40,60,.045)!important;margin-bottom:14px!important;
+    }
+    .screen-head h2{font-size:16px!important;color:#202631}
+    .screen-head p{font-size:10px!important;color:#717985!important}
+    .back{background:#f8f9fb!important;border:1px solid #e9ebef!important;border-radius:13px!important;min-width:41px;min-height:41px}
+    .area-grid{gap:12px!important}
+    .area-card{
+      background:#fff!important;border:1px solid #e6e9ee!important;border-radius:22px!important;
+      box-shadow:0 8px 23px rgba(30,40,60,.045)!important;
+      min-height:162px!important;padding:20px!important;
+      transition:transform .20s ease,box-shadow .20s ease,border-color .20s ease!important;
+    }
+    .area-card .area-icon{background:#fff1f2!important;border:1px solid #f6dcdf!important;border-radius:15px!important;width:45px!important;height:45px!important}
+    .area-card strong{color:#202631!important;font-size:16px!important;margin-top:17px!important}
+    .area-card small{color:#717985!important;font-size:11px!important}
+    .outlet-grid{
+      background:transparent!important;border:0!important;border-radius:0!important;
+      box-shadow:none!important;overflow:visible!important;gap:9px!important;
+    }
+    .outlet-card,.investor-card{
+      background:#fff!important;border:1px solid #e6e9ee!important;border-radius:17px!important;
+      box-shadow:0 5px 18px rgba(30,40,60,.035)!important;min-height:72px!important;
+      padding:13px 15px!important;
+      transition:transform .2s ease,box-shadow .2s ease,border-color .2s ease!important;
+    }
+    .outlet-card small,.investor-card small{color:#717985!important;font-size:10px!important}
+    .outlet-card b,.investor-card b{color:#202631!important;font-size:13px!important}
+    .all-card{background:#fff8f8!important;border-color:#f4dddd!important}
+    .kasir-outlet-grid{gap:11px!important}
+    .kasir-outlet-card{
+      min-height:129px!important;border:1px solid #e6e9ee!important;
+      background:#fff!important;border-radius:18px!important;
+      padding:15px!important;box-shadow:0 6px 20px rgba(30,40,60,.04)!important;
+      transition:transform .20s ease,box-shadow .20s ease,border-color .20s ease!important;
+    }
+    .kasir-outlet-card .tile-name{font-size:13px!important;color:#202631}
+    .kasir-outlet-card .tile-sub{font-size:10px!important;color:#717985}
+    .note{background:#edf0f4!important;color:#66717d!important;border-radius:14px!important;font-size:10px!important;padding:13px 14px!important}
+    .note.warn{background:#fff4dc!important;color:#855e14!important}
+    .viewer-bar{background:#1b2430!important;border-color:rgba(255,255,255,.09)!important}
+    .viewer-back,.viewer-home,.viewer-reload{border-radius:12px!important}
+    #viewerLoading{background:#f6f7f9!important}
+    .viewer-load-card{
+      min-width:min(280px,85vw);background:#fff;border:1px solid #e9ecf1;border-radius:22px;
+      padding:28px 24px;box-shadow:0 16px 46px rgba(30,40,60,.09);
+      font-size:12px;color:#394351;
+    }
+    .viewer-spinner{width:31px;height:31px;border-color:#f4dadd;border-top-color:#c91520}
+    .load-bars{width:100%;max-width:178px;display:grid;gap:7px;margin-top:2px}
+    .load-bars i{height:7px;border-radius:999px;display:block;background:linear-gradient(90deg,#f0f1f4,#fafbfc,#edf0f4);background-size:200% 100%;animation:loadShimmer 1.8s ease-in-out infinite}
+    .load-bars i:nth-child(2){width:74%;margin:0 auto}.load-bars i:nth-child(3){width:48%;margin:0 auto}
+    @keyframes loadShimmer{0%{background-position:100% 0}100%{background-position:-100% 0}}
+    #panel>.home-intro,#panel>.role-grid,#panel>.area-grid,#panel>.screen-head,#panel>.outlet-grid,#panel>.kasir-outlet-grid{
+      animation:surfaceIn .24s ease-out both;
+    }
+    @keyframes surfaceIn{from{opacity:.6;transform:translateY(7px)}to{opacity:1;transform:translateY(0)}}
+    .role-card:focus-visible,.outlet-card:focus-visible,.investor-card:focus-visible,.kasir-outlet-card:focus-visible,.area-card:focus-visible,.back:focus-visible{
+      outline:3px solid rgba(201,21,32,.40)!important;outline-offset:3px!important;
+    }
+    @media(hover:hover){
+      .role-card:hover,.outlet-card:hover,.investor-card:hover,.area-card:hover,.kasir-outlet-card:hover{
+        transform:translateY(-2px)!important;box-shadow:0 15px 32px rgba(30,40,60,.085)!important;
+        border-color:#d9dee6!important;
+      }
+    }
+    @media(max-width:760px){
+      .hero{min-height:181px!important;padding:45px 16px 65px!important}
+      .hero-center{gap:12px!important}
+      .hero-logo{width:90px;height:67px}.hero-logo img{width:88px;height:64px}
+      .hero-system-title{font-size:17px!important}
+      .system-pill{right:12px!important;top:12px!important}
+      .content{margin:-37px auto 0!important;padding:0 12px 36px!important}
+      .home-intro{padding:20px 19px;border-radius:21px}
+      .home-intro h2{font-size:21px}.home-intro p{font-size:11px}
+      .home-label{margin:20px 3px 10px!important}
+      .role-grid{grid-template-columns:repeat(2,minmax(0,1fr))!important;gap:10px!important}
+      .role-grid .role-card[data-action="kasir"]{
+        min-height:119px!important;padding:18px!important;
+        grid-template-columns:52px minmax(0,1fr) auto!important;column-gap:12px!important;border-radius:22px!important;
+      }
+      .role-grid .role-card[data-action="kasir"] .role-icon{width:52px!important;height:52px!important;border-radius:16px!important}
+      .role-grid .role-card[data-action="kasir"] .role-icon svg{width:25px!important;height:25px!important}
+      .role-grid .role-card[data-action="kasir"] b{font-size:20px!important}
+      .role-grid .role-card[data-action="kasir"] >span{font-size:10.5px!important}
+      .role-grid .role-card:not([data-action="kasir"]){min-height:135px!important;padding:14px!important;border-radius:19px!important}
+      .role-grid .role-card:not([data-action="kasir"]) .role-icon{width:41px!important;height:41px!important;border-radius:13px!important}
+      .role-grid .role-card:not([data-action="kasir"]) b{font-size:13.5px!important;margin-top:13px!important}
+      .role-grid .role-card:not([data-action="kasir"]) >span{font-size:9.3px!important}
+      .area-card{min-height:141px!important;padding:16px!important}
+      .area-card strong{font-size:14px!important;margin-top:13px!important}
+      .kasir-outlet-grid{gap:9px!important}
+      .kasir-outlet-card{min-height:118px!important;padding:13px!important}
+      .kasir-outlet-card .tile-name{font-size:12px!important}
+    }
+    @media(max-width:370px){
+      .hero-system-title{font-size:15px!important}
+      .role-grid .role-card[data-action="kasir"]{grid-template-columns:46px minmax(0,1fr) auto!important;column-gap:10px!important;padding:15px!important}
+      .role-grid .role-card[data-action="kasir"] .role-icon{width:46px!important;height:46px!important}
+      .role-grid .role-card:not([data-action="kasir"]) >span{font-size:8.8px!important}
+    }
+    @media(prefers-reduced-motion:reduce){
+      #panel>*{animation:none!important}
+      .role-card,.outlet-card,.investor-card,.area-card,.kasir-outlet-card{transition:none!important}
+      .load-bars i,.viewer-spinner,.loader{animation:none!important}
+    }
+
   </style>
 </head>
 <body>
@@ -259,13 +450,13 @@
 <div id="viewer">
   <div class="viewer-bar"><button class="viewer-back" id="viewerBack" aria-label="Kembali satu halaman">‹</button><button class="viewer-home" id="viewerHome" aria-label="Beranda aplikasi">⌂</button><div class="viewer-title"><b id="viewerTitle">Wills Coffee</b><span id="viewerSub">Memuat…</span></div><button class="viewer-reload" id="viewerReload">Muat ulang</button></div>
   <div id="frameWrap"><iframe id="appFrame" title="Wills Coffee" allow="clipboard-read; clipboard-write; fullscreen; autoplay" referrerpolicy="no-referrer-when-downgrade"></iframe></div>
-  <div id="viewerLoading"><div class="viewer-load-card"><div class="viewer-spinner"></div><div id="viewerLoadingText">Memuat Wills System…</div></div></div>
+  <div id="viewerLoading"><div class="viewer-load-card"><div class="viewer-spinner"></div><div id="viewerLoadingText">Memuat Wills System…</div><div class="load-bars" aria-hidden="true"><i></i><i></i><i></i></div></div></div>
 </div>
 <div id="splash"><div class="splash-card"><img src="wills-logo.png" alt="Wills Coffee"><div class="splash-title">Wills Coffee</div><div class="splash-sub">Menyiapkan Wills System…</div><div class="loader"></div></div></div>
 <div id="offline"><span>Koneksi internet terputus. Sistem Wills membutuhkan koneksi.</span><button id="reloadNet">Muat Ulang</button></div>
 <div id="navNotice" role="status" aria-live="polite"></div>
 <div id="installCard"><button id="closeInstall" aria-label="Tutup">×</button><img src="wills-logo.png" alt=""><div class="install-copy"><strong>Pasang Wills Coffee</strong><span>Buka Wills System dari Home Screen tanpa address bar.</span></div><button id="installBtn">Pasang</button></div>
-<script src="config.js?v=10890"></script>
+<script src="config.js?v=10900"></script>
 <script>
 (()=>{
   const C=window.WILLS_CONFIG;
@@ -290,7 +481,7 @@
     };return icons[type]||icons.kasir;
   }
   function cardIcon(type){return '<span class="badge role-mini">'+roleIcon(type)+'</span>';}
-  function home(push=true){currentScreen='home';setHero();panel.innerHTML=`<div class="home-label">Pilih akses</div><div class="role-grid"><button class="role-card" data-action="kasir"><div class="role-icon">${roleIcon('kasir')}</div><b>Kasir</b><span>Transaksi dan operasional harian outlet.</span></button><button class="role-card" data-action="finance"><div class="role-icon">${roleIcon('finance')}</div><b>Finance</b><span>Arus kas & rekonsiliasi.</span></button><button class="role-card" data-action="hr"><div class="role-icon">${roleIcon('hr')}</div><b>HR</b><span>Tim, jadwal & payroll.</span></button><button class="role-card" data-action="investor"><div class="role-icon">${roleIcon('investor')}</div><b>Investor</b><span>Dashboard dan laporan investor.</span></button><button class="role-card" data-action="owner"><div class="role-icon">${roleIcon('owner')}</div><b>Owner</b><span>Monitoring dan kontrol seluruh cabang.</span></button></div>`;if(push)pushLauncherState('home')}
+  function home(push=true){currentScreen='home';setHero();panel.innerHTML=`<div class="home-intro"><div class="home-kicker">WILLS WORKSPACE</div><h2>Selamat datang di Wills.</h2><p>Satu akses untuk seluruh operasional bisnis.</p></div><div class="home-label">Pilih layanan</div><div class="role-grid"><button class="role-card" data-action="kasir"><div class="role-icon">${roleIcon('kasir')}</div><b>Kasir</b><span>Transaksi dan operasional harian outlet.</span></button><button class="role-card" data-action="finance"><div class="role-icon">${roleIcon('finance')}</div><b>Finance</b><span>Arus kas & rekonsiliasi.</span></button><button class="role-card" data-action="hr"><div class="role-icon">${roleIcon('hr')}</div><b>HR</b><span>Tim, jadwal & payroll.</span></button><button class="role-card" data-action="investor"><div class="role-icon">${roleIcon('investor')}</div><b>Investor</b><span>Dashboard dan laporan investor.</span></button><button class="role-card" data-action="owner"><div class="role-icon">${roleIcon('owner')}</div><b>Owner</b><span>Monitoring dan kontrol seluruh cabang.</span></button></div>`;if(push)pushLauncherState('home')}
   const AREA_NAMES=Object.freeze({purwakarta:'Purwakarta',cikampek:'Cikampek'});
   const inArea=(o,key)=>String(o.region||'').toLowerCase()===key;
   const areaCount=key=>C.outlets.filter(o=>inArea(o,key)).length;
@@ -460,7 +651,7 @@
   const splash=document.getElementById('splash');setTimeout(()=>splash.classList.add('hide'),700);
   const offline=document.getElementById('offline'),systemPill=document.getElementById('systemPill'),systemStatus=document.getElementById('systemStatus');function onlineState(){const online=navigator.onLine;offline.classList.toggle('show',!online);if(systemPill)systemPill.classList.toggle('offline',!online);if(systemStatus)systemStatus.textContent=online?'System Online':'System Offline'}window.addEventListener('online',onlineState);window.addEventListener('offline',onlineState);onlineState();document.getElementById('reloadNet').addEventListener('click',()=>location.reload());
   let installPrompt=null;const installCard=document.getElementById('installCard');window.addEventListener('beforeinstallprompt',e=>{e.preventDefault();installPrompt=e;if(!matchMedia('(display-mode: standalone)').matches)installCard.classList.add('show')});document.getElementById('installBtn').addEventListener('click',async()=>{if(!installPrompt)return;installPrompt.prompt();try{await installPrompt.userChoice}catch(e){}installPrompt=null;installCard.classList.remove('show')});document.getElementById('closeInstall').addEventListener('click',()=>installCard.classList.remove('show'));window.addEventListener('appinstalled',()=>installCard.classList.remove('show'));
-  if('serviceWorker'in navigator)window.addEventListener('load',()=>navigator.serviceWorker.register('./sw.js?v=10890').catch(()=>{}));
+  if('serviceWorker'in navigator)window.addEventListener('load',()=>navigator.serviceWorker.register('./sw.js?v=10900').catch(()=>{}));
 })();
 </script>
 </body>
