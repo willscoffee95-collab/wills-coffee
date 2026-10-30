@@ -14,7 +14,7 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
   <link rel="apple-touch-icon" href="icon-192.png">
-  <!-- WILLS PWA v10.9.1 Signature Flow; 3 authentic Wills product photos; routes unchanged -->
+  <!-- WILLS PWA v10.9.2 Investor Portal Fresh Load; cashier/owner routes unchanged -->
   <title>Wills Coffee</title>
   <style>
 
@@ -590,6 +590,12 @@
   const withParam=(base,key,value)=>base+(base.includes('?')?'&':'?')+encodeURIComponent(key)+'='+encodeURIComponent(value);
   const route=(outlet,app)=>withParam(outlet.base,'app',app);
   const centralRoute=section=>withParam(withParam(C.masterBase||C.ownerAllOutletUrl,'app','owner'),'section',section);
+  // Portal investor saja: paksa fetch baru setiap dibuka / di-refresh di dalam PWA.
+  // Parameter ini bukan credential dan tidak mengubah endpoint Apps Script.
+  let investorPortalRefreshSeq=0;
+  const viewerFreshUrl=url=>(/(?:[?&])app=portal(?:&|$)/.test(url))
+    ? withParam(url,'willsRefresh',String(Date.now())+'-'+(++investorPortalRefreshSeq))
+    : url;
   const esc=s=>String(s||'').replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
 
   function setHero(){window.scrollTo(0,0)}
@@ -686,7 +692,7 @@
     const el=document.getElementById('navNotice');el.textContent=message;el.classList.add('show');
     clearTimeout(noticeTimer);noticeTimer=setTimeout(()=>el.classList.remove('show'),3800);
   }
-  function openViewer(url,title,sub){if(!url)return;currentUrl=url;viewerTitle.textContent=title;viewerSub.textContent=sub||'Wills Coffee';showViewerLoading('Memuat '+title+'…');frame.src=url;viewer.classList.add('show');pushLauncherState('viewer')}
+  function openViewer(url,title,sub){if(!url)return;currentUrl=url;viewerTitle.textContent=title;viewerSub.textContent=sub||'Wills Coffee';showViewerLoading('Memuat '+title+'…');frame.src=viewerFreshUrl(url);viewer.classList.add('show');pushLauncherState('viewer')}
   function closeViewer(){clearTimeout(viewerBackTimer);viewerBackTimer=null;viewerBackAck=false;viewerBackFromHistory=false;frame.src='about:blank';currentUrl='';viewer.classList.remove('show');hideViewerLoading()}
   function requestInnerBack(fromHistory=false){
     if(!viewer.classList.contains('show'))return false;
@@ -747,7 +753,7 @@
     if(!confirm('Kembali ke beranda Wills Coffee? Halaman outlet yang terbuka akan ditutup.'))return;
     closeViewer();home();
   });
-  document.getElementById('viewerReload').addEventListener('click',()=>{if(currentUrl){showViewerLoading('Memuat ulang…');frame.src=currentUrl}});
+  document.getElementById('viewerReload').addEventListener('click',()=>{if(currentUrl){showViewerLoading('Memuat ulang…');frame.src=viewerFreshUrl(currentUrl)}});
   frame.addEventListener('load',()=>{if(frame.src!=='about:blank')hideViewerLoading()});
   window.addEventListener('message',ev=>{
     if(ev.source!==frame.contentWindow)return;
