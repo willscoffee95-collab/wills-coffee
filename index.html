@@ -336,7 +336,32 @@
     if(push)pushLauncherState(currentScreen);
   }
   function investorHome(push=true){currentScreen='investor';setHero('Investor Wills Coffee','Pilih akses investor. Identitas investor tidak ditampilkan di launcher.');panel.innerHTML=backHead('Investor','Dashboard dan laporan','home')+`<div class="outlet-grid"><button class="investor-card" data-action="investor1"><span class="outlet-left">${cardIcon('investor')}<span><b>Investor 1</b><small>8 outlet • Purwakarta &amp; Cikampek • Laporan Gabungan</small></span></span><span class="arrow">›</span></button><button class="investor-card" data-direct-investor="2"><span class="outlet-left">${cardIcon('investor')}<span><b>Investor 2</b><small>Dashboard Investor Cikopak</small></span></span><span class="arrow">›</span></button><button class="investor-card" data-direct-investor="3"><span class="outlet-left">${cardIcon('investor')}<span><b>Investor 3</b><small>Dashboard Investor Cipaisan</small></span></span><span class="arrow">›</span></button></div><div class="note">Dashboard investor outlet tetap memakai login/password dari masing-masing sistem outlet.</div>`;if(push)pushLauncherState('investor')}
-  function investor1(push=true){currentScreen='investor1';setHero('Investor 1','Pilih dashboard 8 outlet atau lihat laporan gabungan Haidar.');const ids=C.investors.investor1.outletIds;panel.innerHTML=backHead('Investor 1','8 outlet • Purwakarta & Cikampek','investor')+`<div class="outlet-grid">${ids.map(id=>{const o=outletById(id);return `<button class="outlet-card" data-investor-outlet="${o.id}"><span class="outlet-left">${cardIcon('investor')}<span><b>${esc(o.name)}</b><small>${esc(o.code)} • Dashboard Investor ${esc(o.name)}</small></span></span><span class="arrow">›</span></button>`}).join('')}<button class="outlet-card all-card" data-action="alloutlet"><span class="outlet-left"><span class="badge logo-badge"><img src="wills-logo.png" alt="Wills Coffee"></span><span><b>Laporan All Outlet</b><small>Performa gabungan 8 outlet Haidar</small></span></span><span class="arrow">›</span></button></div>`;if(push)pushLauncherState('investor1')}
+  function investor1(push=true){
+    currentScreen='investor1';setHero();
+    const ids=C.investors.investor1.outletIds;
+    const counts=Object.keys(AREA_NAMES).reduce((result,key)=>{
+      result[key]=ids.map(outletById).filter(o=>o&&inArea(o,key)).length;
+      return result;
+    },{});
+    panel.innerHTML=backHead('Investor 1','Pilih area atau lihat laporan gabungan 8 outlet','investor')+
+      '<div class="area-grid">'+
+      Object.keys(AREA_NAMES).map(key=>'<button type="button" class="area-card" data-investor-region="'+key+'"><span class="area-icon">'+areaIcon+'</span><span class="area-arrow">›</span><strong>Area '+esc(AREA_NAMES[key])+'</strong><small>'+counts[key]+' outlet</small></button>').join('')+
+      '</div>'+
+      '<div class="outlet-grid" style="margin-top:12px"><button type="button" class="outlet-card all-card" data-action="alloutlet"><span class="outlet-left"><span class="badge logo-badge"><img src="wills-logo.png" alt="Wills Coffee"></span><span><b>Laporan All Outlet</b><small>Performa gabungan 8 outlet Haidar</small></span></span><span class="arrow">›</span></button></div>';
+    if(push)pushLauncherState('investor1');
+  }
+  function investorAreaList(region,push=true){
+    if(!AREA_NAMES[region])return investor1(push);
+    const ids=C.investors.investor1.outletIds;
+    const rows=ids.map(outletById).filter(o=>o&&inArea(o,region));
+    currentScreen='investor1-region-'+region;setHero();
+    const cards=rows.map(o=>
+      '<button type="button" class="outlet-card" data-investor-outlet="'+esc(o.id)+'"><span class="outlet-left">'+cardIcon('investor')+'<span><b>'+esc(o.name)+'</b><small>'+esc(o.displayCode||o.code)+' • Dashboard Investor '+esc(o.name)+'</small></span></span><span class="arrow">›</span></button>'
+    ).join('');
+    panel.innerHTML=backHead('Area '+AREA_NAMES[region],'Investor 1 • '+rows.length+' outlet','investor1')+
+      '<div class="outlet-grid">'+cards+'</div>';
+    if(push)pushLauncherState(currentScreen);
+  }
 
   function showViewerLoading(text){viewerLoadingText.textContent=text||'Memuat Wills System…';viewerLoading.classList.add('show')}
   function hideViewerLoading(){viewerLoading.classList.remove('show')}
@@ -378,6 +403,7 @@
     if(screen.startsWith('owner-region-'))return outletList('owner',false,screen.slice(13));
     if(screen==='investor')return investorHome(false);
     if(screen==='investor1')return investor1(false);
+    if(screen.startsWith('investor1-region-'))return investorAreaList(screen.slice('investor1-region-'.length),false);
     return home(false);
   }
   function ownerAll(){if(!C.ownerAllOutletUrl){panel.insertAdjacentHTML('beforeend','<div class="note warn">Portal Owner All Outlet belum dihubungkan.</div>');return}openViewer(C.ownerAllOutletUrl,'Owner • All Outlet',C.outlets.length+' Outlet • Wills Coffee')}
@@ -394,6 +420,7 @@
     if(a==='finance'||a==='hr')return openCentral(a);
     if(a==='investor')return investorHome();
     if(a==='investor1')return investor1();
+    if(b.dataset.investorRegion)return investorAreaList(b.dataset.investorRegion);
     if(a==='ownerall')return ownerAll();
     if(a==='alloutlet')return allOutlet();
     if(b.dataset.openRole){const o=outletById(b.dataset.outlet),role=b.dataset.openRole;if(!o||!o.base)return;return openViewer(route(o,role==='kasir'?'kasir':'owner'),(role==='kasir'?'Kasir':'Owner')+' • '+o.name,o.code+' • Wills Coffee')}
