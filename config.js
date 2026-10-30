@@ -22,7 +22,7 @@ window.WILLS_CONFIG = Object.freeze({
   ]),
 
   investors: Object.freeze({
-    investor1: Object.freeze({outletIds:['rb','tm','upi']}),
+    investor1: Object.freeze({outletIds:['rb','tm','upi','bip','cko','ckbr','pwr','snpt']}),
     investor2: Object.freeze({outletId:'cikopak'}),
     investor3: Object.freeze({outletId:'cipaisan'})
   }),
