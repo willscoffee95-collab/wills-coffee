@@ -10,8 +10,11 @@
   <meta name="apple-mobile-web-app-title" content="Wills Coffee">
   <link rel="manifest" href="manifest.webmanifest">
   <link rel="icon" href="favicon.png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
   <link rel="apple-touch-icon" href="icon-192.png">
-  <!-- WILLS PWA v10.9.0 premium clean UI; routes and outlet data unchanged -->
+  <!-- WILLS PWA v10.9.1 Signature Flow; 3 authentic Wills product photos; routes unchanged -->
   <title>Wills Coffee</title>
   <style>
 
@@ -436,6 +439,115 @@
       .load-bars i,.viewer-spinner,.loader{animation:none!important}
     }
 
+
+    /* WILLS SIGNATURE FLOW v10.9.1 — motion is CSS-only, semantic routing unchanged */
+    html,body{font-family:"Plus Jakarta Sans",Inter,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif!important}
+    .hero{
+      min-height:216px!important;padding:22px 22px 71px!important;
+      align-items:center!important;background:linear-gradient(117deg,#b70e1d 0%,#c81422 55%,#df2230 100%)!important;
+    }
+    .hero-center{
+      display:flex!important;align-items:center!important;justify-content:space-between!important;
+      gap:12px!important;max-width:1050px!important;margin:0 auto!important;
+    }
+    .wills-brand-lockup{flex:1;min-width:0;display:flex;flex-direction:column;align-items:flex-start}
+    .wills-brand-lockup .hero-logo{margin:0!important;width:128px!important;height:85px!important;place-items:center start!important}
+    .wills-brand-lockup .hero-logo img{width:121px!important;height:82px!important;object-fit:contain}
+    .wills-brand-lockup .hero-system-title{
+      display:block!important;margin:1px 0 0!important;font-size:clamp(15px,2vw,20px)!important;
+      font-weight:800!important;letter-spacing:-.035em!important;white-space:nowrap!important;
+    }
+    .wills-tagline{margin-top:7px;color:rgba(255,255,255,.87);font-size:clamp(9px,1.3vw,11px);line-height:1.5;font-weight:500}
+    .wills-products{
+      flex:none;display:flex;align-items:flex-end;justify-content:flex-end;gap:8px;
+      padding:17px 0 0;min-width:0;
+    }
+    .wills-product{
+      position:relative;overflow:hidden;flex:none;width:91px;height:132px;
+      margin:0;padding:5px;border-radius:16px;isolation:isolate;
+      background:linear-gradient(155deg,#ffffff,#f2f4f8);
+      border:1px solid rgba(255,255,255,.55);
+      box-shadow:0 12px 24px rgba(67,0,11,.18);
+      will-change:transform;
+      animation:willsProductFloat 6.3s ease-in-out infinite;
+    }
+    .wills-product:nth-child(1){animation-delay:-1.7s;transform:rotate(-5deg)}
+    .wills-product:nth-child(2){animation-delay:-3.6s;width:104px;height:149px;z-index:2}
+    .wills-product:nth-child(3){animation-delay:-.8s;transform:rotate(4deg)}
+    .wills-photo{position:relative;overflow:hidden;width:100%;height:calc(100% - 18px);border-radius:12px;background:#f0f2f8}
+    .wills-photo img{
+      position:absolute;display:block;left:-50%;top:-78%;width:200%;height:auto;max-width:none;
+      user-select:none;pointer-events:none;
+    }
+    .wills-product figcaption{
+      display:block;margin:5px 0 0;font-size:8px;line-height:1.1;letter-spacing:.05em;
+      font-weight:850;text-align:center;color:#8b1825;white-space:nowrap;
+    }
+    @keyframes willsProductFloat{
+      0%,100%{translate:0 0}
+      50%{translate:0 -5px}
+    }
+    .wills-ticker{
+      position:relative;display:block;overflow:hidden;width:100%;
+      border-radius:14px;background:#22252b;color:#fff;
+      padding:12px 0;margin:0 0 15px;
+      border:1px solid rgba(255,255,255,.13);
+      box-shadow:0 12px 24px rgba(28,32,40,.11);
+    }
+    .wills-ticker-track{
+      display:flex;align-items:center;gap:28px;width:max-content;
+      white-space:nowrap;animation:willsTickerMarquee 38s linear infinite;
+    }
+    .wills-ticker-item{flex:none;display:inline-flex;align-items:center;gap:11px;padding:0 6px;white-space:nowrap}
+    .wills-ticker-quote{font-size:11.5px;font-weight:650;letter-spacing:.005em}
+    .wills-ticker-source{font-size:10.5px;font-weight:750;color:#ffbdc2}
+    .wills-ticker-dot{color:#fc5b6a;font-size:14px}
+    @keyframes willsTickerMarquee{from{transform:translate3d(0,0,0)}to{transform:translate3d(-50%,0,0)}}
+    .role-grid .role-card[data-action="kasir"]{overflow:hidden!important;isolation:isolate}
+    .role-grid .role-card[data-action="kasir"]:before{
+      content:"";display:block!important;position:absolute;z-index:0;
+      left:-90%;top:-80%;width:34%;height:260%;
+      background:linear-gradient(90deg,transparent,rgba(255,255,255,.13),transparent);
+      transform:rotate(20deg);pointer-events:none;
+      animation:willsKasirShine 9.5s ease-in-out infinite;
+    }
+    .role-grid .role-card[data-action="kasir"]>*{position:relative;z-index:1}
+    @keyframes willsKasirShine{0%,72%{left:-90%}88%,100%{left:180%}}
+    #panel>.home-intro{animation:willsIntroIn .36s ease-out both}
+    #panel>.role-grid{animation:willsIntroIn .48s .07s ease-out both}
+    @keyframes willsIntroIn{from{opacity:.55;translate:0 7px}to{opacity:1;translate:0 0}}
+    @media(max-width:760px){
+      .hero{min-height:186px!important;padding:30px 14px 62px!important}
+      .hero-center{gap:7px!important}
+      .wills-brand-lockup .hero-logo{width:100px!important;height:65px!important}
+      .wills-brand-lockup .hero-logo img{width:99px!important;height:64px!important}
+      .wills-brand-lockup .hero-system-title{font-size:14px!important}
+      .wills-tagline{font-size:9px;max-width:155px}
+      .wills-products{gap:4px;padding-top:10px}
+      .wills-product{width:56px;height:88px;padding:3px;border-radius:11px}
+      .wills-product:nth-child(2){width:64px;height:100px}
+      .wills-photo{height:calc(100% - 14px);border-radius:8px}
+      .wills-product figcaption{font-size:6px;margin-top:4px}
+      .wills-ticker{border-radius:11px;margin-bottom:12px;padding:10px 0}
+      .wills-ticker-quote{font-size:10.5px}.wills-ticker-source{font-size:10px}
+    }
+    @media(max-width:380px){
+      .hero{padding:30px 10px 59px!important}
+      .wills-brand-lockup .hero-logo{width:88px!important}
+      .wills-brand-lockup .hero-logo img{width:88px!important}
+      .wills-brand-lockup .hero-system-title{font-size:12px!important}
+      .wills-tagline{font-size:8px}
+      .wills-products{gap:3px}
+      .wills-product{width:50px;height:81px}
+      .wills-product:nth-child(2){width:57px;height:92px}
+      .wills-product figcaption{font-size:5.8px}
+    }
+    @media(prefers-reduced-motion:reduce){
+      .wills-product,.wills-ticker-track,.role-grid .role-card[data-action="kasir"]:before,
+      #panel>.home-intro,#panel>.role-grid{animation:none!important;translate:none!important}
+      .wills-ticker{overflow-x:auto;overscroll-behavior-x:contain}
+    }
+
   </style>
 </head>
 <body>
@@ -443,9 +555,20 @@
   <section class="hero">
     <div class="hero-decor" aria-hidden="true"><span class="hero-wave w1"></span><span class="hero-wave w2"></span><span class="bean b1"></span><span class="bean b2"></span><span class="bean b3"></span></div>
     <div class="system-pill" id="systemPill"><i></i><span id="systemStatus">System Online</span></div>
-    <div class="hero-center"><div class="hero-logo"><img src="wills-logo.png" alt="Wills Coffee"></div><div class="hero-system-title">Operational System</div></div>
+    <div class="hero-center">
+       <div class="wills-brand-lockup">
+         <div class="hero-logo"><img src="wills-logo.png" alt="Logo resmi Wills Coffee"></div>
+         <div class="hero-system-title">Operational System</div>
+         <div class="wills-tagline">Kopi Daily, yang paling worth it.</div>
+       </div>
+       <div class="wills-products" aria-label="Foto produk asli Wills Coffee">
+         <figure class="wills-product willsp-latte"><div class="wills-photo"><img src="assets/wills-latte-supreme.png" alt="Cup asli Wills Latte Supreme" decoding="async" fetchpriority="low"></div><figcaption>LATTE</figcaption></figure>
+         <figure class="wills-product willsp-black"><div class="wills-photo"><img src="assets/black-wills-supreme.png" alt="Cup asli Black Wills Supreme" decoding="async" fetchpriority="low"></div><figcaption>BLACK WILLS</figcaption></figure>
+         <figure class="wills-product willsp-matcha"><div class="wills-photo"><img src="assets/wills-matcha-supreme.png" alt="Cup asli Wills Matcha Supreme" decoding="async" fetchpriority="low"></div><figcaption>MATCHA</figcaption></figure>
+       </div>
+     </div>
   </section>
-  <main class="content"><div class="panel" id="panel"></div></main>
+  <main class="content"><div class="wills-ticker" aria-label="Pesan nilai kerja Wills Coffee: Sesungguhnya Allah mencintai apabila seseorang mengerjakan suatu pekerjaan, ia mengerjakannya dengan sebaik-baiknya (itqan). Hadis riwayat Ath-Thabrani."><div class="wills-ticker-track" aria-hidden="true"><span class="wills-ticker-item"><span class="wills-ticker-dot">✦</span> <span class="wills-ticker-quote">“Sesungguhnya Allah mencintai apabila seseorang mengerjakan suatu pekerjaan, ia mengerjakannya dengan sebaik-baiknya (itqan).”</span> <span class="wills-ticker-source">— HR. Ath-Thabrani</span> <span class="wills-ticker-dot">✦</span></span><span class="wills-ticker-item"><span class="wills-ticker-dot">✦</span> <span class="wills-ticker-quote">“Sesungguhnya Allah mencintai apabila seseorang mengerjakan suatu pekerjaan, ia mengerjakannya dengan sebaik-baiknya (itqan).”</span> <span class="wills-ticker-source">— HR. Ath-Thabrani</span> <span class="wills-ticker-dot">✦</span></span></div></div><div class="panel" id="panel"></div></main>
 </div>
 <div id="viewer">
   <div class="viewer-bar"><button class="viewer-back" id="viewerBack" aria-label="Kembali satu halaman">‹</button><button class="viewer-home" id="viewerHome" aria-label="Beranda aplikasi">⌂</button><div class="viewer-title"><b id="viewerTitle">Wills Coffee</b><span id="viewerSub">Memuat…</span></div><button class="viewer-reload" id="viewerReload">Muat ulang</button></div>
@@ -456,7 +579,7 @@
 <div id="offline"><span>Koneksi internet terputus. Sistem Wills membutuhkan koneksi.</span><button id="reloadNet">Muat Ulang</button></div>
 <div id="navNotice" role="status" aria-live="polite"></div>
 <div id="installCard"><button id="closeInstall" aria-label="Tutup">×</button><img src="wills-logo.png" alt=""><div class="install-copy"><strong>Pasang Wills Coffee</strong><span>Buka Wills System dari Home Screen tanpa address bar.</span></div><button id="installBtn">Pasang</button></div>
-<script src="config.js?v=10900"></script>
+<script src="config.js?v=10910"></script>
 <script>
 (()=>{
   const C=window.WILLS_CONFIG;
@@ -651,7 +774,7 @@
   const splash=document.getElementById('splash');setTimeout(()=>splash.classList.add('hide'),700);
   const offline=document.getElementById('offline'),systemPill=document.getElementById('systemPill'),systemStatus=document.getElementById('systemStatus');function onlineState(){const online=navigator.onLine;offline.classList.toggle('show',!online);if(systemPill)systemPill.classList.toggle('offline',!online);if(systemStatus)systemStatus.textContent=online?'System Online':'System Offline'}window.addEventListener('online',onlineState);window.addEventListener('offline',onlineState);onlineState();document.getElementById('reloadNet').addEventListener('click',()=>location.reload());
   let installPrompt=null;const installCard=document.getElementById('installCard');window.addEventListener('beforeinstallprompt',e=>{e.preventDefault();installPrompt=e;if(!matchMedia('(display-mode: standalone)').matches)installCard.classList.add('show')});document.getElementById('installBtn').addEventListener('click',async()=>{if(!installPrompt)return;installPrompt.prompt();try{await installPrompt.userChoice}catch(e){}installPrompt=null;installCard.classList.remove('show')});document.getElementById('closeInstall').addEventListener('click',()=>installCard.classList.remove('show'));window.addEventListener('appinstalled',()=>installCard.classList.remove('show'));
-  if('serviceWorker'in navigator)window.addEventListener('load',()=>navigator.serviceWorker.register('./sw.js?v=10900').catch(()=>{}));
+  if('serviceWorker'in navigator)window.addEventListener('load',()=>navigator.serviceWorker.register('./sw.js?v=10910').catch(()=>{}));
 })();
 </script>
 </body>
