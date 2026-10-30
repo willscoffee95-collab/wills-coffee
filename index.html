@@ -14,7 +14,7 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
   <link rel="apple-touch-icon" href="icon-192.png">
-  <!-- WILLS PWA v10.9.2 Investor Portal Fresh Load; cashier/owner routes unchanged -->
+  <!-- WILLS PWA v10.9.3 Investor Portal WebView Refresh; cashier/owner routes unchanged -->
   <title>Wills Coffee</title>
   <style>
 
@@ -579,13 +579,13 @@
 <div id="offline"><span>Koneksi internet terputus. Sistem Wills membutuhkan koneksi.</span><button id="reloadNet">Muat Ulang</button></div>
 <div id="navNotice" role="status" aria-live="polite"></div>
 <div id="installCard"><button id="closeInstall" aria-label="Tutup">×</button><img src="wills-logo.png" alt=""><div class="install-copy"><strong>Pasang Wills Coffee</strong><span>Buka Wills System dari Home Screen tanpa address bar.</span></div><button id="installBtn">Pasang</button></div>
-<script src="config.js?v=10910"></script>
+<script src="config.js?v=10930"></script>
 <script>
 (()=>{
   const C=window.WILLS_CONFIG;
   const panel=document.getElementById('panel');
   const viewer=document.getElementById('viewer'),frame=document.getElementById('appFrame'),viewerTitle=document.getElementById('viewerTitle'),viewerSub=document.getElementById('viewerSub'),viewerLoading=document.getElementById('viewerLoading'),viewerLoadingText=document.getElementById('viewerLoadingText');
-  let currentUrl='',currentScreen='home',viewerBackTimer=null,viewerBackAck=false,historyArmed=false,touchStartY=0;
+  let currentUrl='',currentScreen='home',viewerBackTimer=null,viewerBackAck=false,historyArmed=false,touchStartY=0,investorFrameTimer=null;
   const outletById=id=>C.outlets.find(x=>x.id===id);
   const withParam=(base,key,value)=>base+(base.includes('?')?'&':'?')+encodeURIComponent(key)+'='+encodeURIComponent(value);
   const route=(outlet,app)=>withParam(outlet.base,'app',app);
@@ -593,9 +593,20 @@
   // Portal investor saja: paksa fetch baru setiap dibuka / di-refresh di dalam PWA.
   // Parameter ini bukan credential dan tidak mengubah endpoint Apps Script.
   let investorPortalRefreshSeq=0;
-  const viewerFreshUrl=url=>(/(?:[?&])app=portal(?:&|$)/.test(url))
-    ? withParam(url,'willsRefresh',String(Date.now())+'-'+(++investorPortalRefreshSeq))
+  const isInvestorPortalUrl=url=>/(?:[?&])app=portal(?:&|$)/.test(url);
+  const viewerFreshUrl=url=>isInvestorPortalUrl(url)
+    ? withParam(withParam(url,'willsPwaVersion','10930'),'willsRefresh',String(Date.now())+'-'+(++investorPortalRefreshSeq))
     : url;
+  function loadViewerFrame(url){
+    clearTimeout(investorFrameTimer);
+    if(!isInvestorPortalUrl(url)){frame.src=url;return;}
+    // Pisahkan dokumen iframe yang lama sebelum memuat portal investor versi terbaru.
+    frame.src='about:blank';
+    const nextUrl=viewerFreshUrl(url);
+    investorFrameTimer=setTimeout(()=>{
+      if(currentUrl===url && viewer.classList.contains('show'))frame.src=nextUrl;
+    },50);
+  }
   const esc=s=>String(s||'').replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
 
   function setHero(){window.scrollTo(0,0)}
@@ -692,8 +703,8 @@
     const el=document.getElementById('navNotice');el.textContent=message;el.classList.add('show');
     clearTimeout(noticeTimer);noticeTimer=setTimeout(()=>el.classList.remove('show'),3800);
   }
-  function openViewer(url,title,sub){if(!url)return;currentUrl=url;viewerTitle.textContent=title;viewerSub.textContent=sub||'Wills Coffee';showViewerLoading('Memuat '+title+'…');frame.src=viewerFreshUrl(url);viewer.classList.add('show');pushLauncherState('viewer')}
-  function closeViewer(){clearTimeout(viewerBackTimer);viewerBackTimer=null;viewerBackAck=false;viewerBackFromHistory=false;frame.src='about:blank';currentUrl='';viewer.classList.remove('show');hideViewerLoading()}
+  function openViewer(url,title,sub){if(!url)return;currentUrl=url;viewerTitle.textContent=title;viewerSub.textContent=sub||'Wills Coffee';showViewerLoading('Memuat '+title+'…');viewer.classList.add('show');loadViewerFrame(url);pushLauncherState('viewer')}
+  function closeViewer(){clearTimeout(viewerBackTimer);clearTimeout(investorFrameTimer);viewerBackTimer=null;investorFrameTimer=null;viewerBackAck=false;viewerBackFromHistory=false;frame.src='about:blank';currentUrl='';viewer.classList.remove('show');hideViewerLoading()}
   function requestInnerBack(fromHistory=false){
     if(!viewer.classList.contains('show'))return false;
     viewerBackAck=false;viewerBackFromHistory=fromHistory;clearTimeout(viewerBackTimer);
@@ -753,7 +764,7 @@
     if(!confirm('Kembali ke beranda Wills Coffee? Halaman outlet yang terbuka akan ditutup.'))return;
     closeViewer();home();
   });
-  document.getElementById('viewerReload').addEventListener('click',()=>{if(currentUrl){showViewerLoading('Memuat ulang…');frame.src=viewerFreshUrl(currentUrl)}});
+  document.getElementById('viewerReload').addEventListener('click',()=>{if(currentUrl){showViewerLoading('Memuat ulang…');loadViewerFrame(currentUrl)}});
   frame.addEventListener('load',()=>{if(frame.src!=='about:blank')hideViewerLoading()});
   window.addEventListener('message',ev=>{
     if(ev.source!==frame.contentWindow)return;
@@ -780,7 +791,16 @@
   const splash=document.getElementById('splash');setTimeout(()=>splash.classList.add('hide'),700);
   const offline=document.getElementById('offline'),systemPill=document.getElementById('systemPill'),systemStatus=document.getElementById('systemStatus');function onlineState(){const online=navigator.onLine;offline.classList.toggle('show',!online);if(systemPill)systemPill.classList.toggle('offline',!online);if(systemStatus)systemStatus.textContent=online?'System Online':'System Offline'}window.addEventListener('online',onlineState);window.addEventListener('offline',onlineState);onlineState();document.getElementById('reloadNet').addEventListener('click',()=>location.reload());
   let installPrompt=null;const installCard=document.getElementById('installCard');window.addEventListener('beforeinstallprompt',e=>{e.preventDefault();installPrompt=e;if(!matchMedia('(display-mode: standalone)').matches)installCard.classList.add('show')});document.getElementById('installBtn').addEventListener('click',async()=>{if(!installPrompt)return;installPrompt.prompt();try{await installPrompt.userChoice}catch(e){}installPrompt=null;installCard.classList.remove('show')});document.getElementById('closeInstall').addEventListener('click',()=>installCard.classList.remove('show'));window.addEventListener('appinstalled',()=>installCard.classList.remove('show'));
-  if('serviceWorker'in navigator)window.addEventListener('load',()=>navigator.serviceWorker.register('./sw.js?v=10910').catch(()=>{}));
+  if('serviceWorker'in navigator){
+    window.addEventListener('load',()=>{
+      navigator.serviceWorker.register('./sw.js?v=10930',{updateViaCache:'none'})
+        .then(reg=>reg.update().catch(()=>{})).catch(()=>{});
+    });
+    navigator.serviceWorker.addEventListener('controllerchange',()=>{
+      // Jangan auto-reload ketika barista/Owner sedang mengoperasikan aplikasi.
+      if(!viewer.classList.contains('show'))showNavNotice('Pembaruan Wills tersedia. Tutup dan buka aplikasi untuk memuat versi terbaru.');
+    });
+  }
 })();
 </script>
 </body>
