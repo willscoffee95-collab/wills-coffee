@@ -9,6 +9,8 @@
 - `sw.js` cache dibump. Endpoint `config.js` dan Google Apps Script tidak diubah.
 
 ## Batasan yang harus diuji sebelum merge
+UPDATE 06-11-2026: Owner mengonfirmasi Bridge Kasir sudah ditempel dan versi Web App terbaru sudah dideploy di seluruh outlet. Pengujian lintas perangkat dan verifikasi postMessage OPEN/CLOSED dari Apps Script tetap diperlukan.
+
 Penting: iframe beda origin (`script.google.com` / `googleusercontent.com`). Launcher tidak dapat membaca status shift atau keranjang dari dalam iframe.
 
 1. **Berpindah menu tanpa menutup PWA**: posisi Kasir dipertahankan selama dokumen iframe masih hidup.
@@ -17,7 +19,7 @@ Penting: iframe beda origin (`script.google.com` / `googleusercontent.com`). Lau
    - `window.parent.postMessage({type:'WILLS_PWA_CASHIER_SHIFT_CLOSED'}, '*');`
    - atau `window.parent.postMessage({type:'WILLS_PWA_CASHIER_LOGOUT'}, '*');`
    - alternatif `window.parent.postMessage({type:'WILLS_PWA_CASHIER_STATUS', status:'CLOSED'}, '*');`
-   Launcher hanya menerima sinyal itu dari iframe Kasir yang terdaftar dan origin Google Apps Script yang dipercaya. Implementasi sinyal di Apps Script **belum termasuk PR ini**.
+   Launcher hanya menerima sinyal itu dari iframe Kasir yang terdaftar dan origin Google Apps Script yang dipercaya. Implementasi Bridge sinyal berada di file Apps Script setiap outlet, terpisah dari GitHub; Owner menyatakan semuanya sudah dideploy, tetapi pengiriman sinyal belum diverifikasi secara live.
 4. Logout saat PWA tidak terbuka/shift ditutup lewat perangkat lain juga memerlukan validasi status backend saat pemuatan ulang. Tanpa backend, launcher hanya tahu outlet terakhir, bukan status shift terkini.
 5. `wills-kasir-cipaisan` adalah PWA terpisah yang langsung membungkus Apps Script Kasir; perubahan menu lintas fitur ini hanya di PWA utama `wills-coffee`.
 
@@ -30,4 +32,4 @@ Penting: iframe beda origin (`script.google.com` / `googleusercontent.com`). Lau
 - Tutup aplikasi sepenuhnya dan buka kembali; audit apakah Apps Script memulihkan shift dan draft; jika belum, implementasikan di Apps Script dahulu.
 - Cek tidak ada request posting transaksi ganda, mutasi stok, atau dampak ke Finance/Investor.
 
-**Status**: Branch uji. Jangan merge sebagai solusi 'shift closed resets' penuh sebelum event backend dan skenario iOS/Android diverifikasi.
+**Status**: Bridge di seluruh outlet dikonfirmasi sudah dideploy oleh Owner. PWA shell siap aktivasi; uji nyata tetap wajib sebelum menyatakan behavior shift closed dan pemulihan draf sepenuhnya tervalidasi.
